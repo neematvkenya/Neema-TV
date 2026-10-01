@@ -6,13 +6,82 @@
 <meta name="theme-color" content="#087b3d">
 <meta name="description" content="NEEMA TV — The Garden of Sufficient Grace. Watch, worship, learn and stay connected.">
 <title>NEEMA TV | The Garden of Sufficient Grace</title>
+
 <link rel="icon" href="assets/neema-logo.png">
 <link rel="stylesheet" href="styles.css">
+
+<style>
+/* ================================
+   NEEMA TV LIVE PLAYER
+================================ */
+
+.neema-live-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+  object-fit: contain;
+}
+
+.live-status {
+  margin-top: 12px;
+  color: #079447;
+  font-weight: 700;
+  text-align: center;
+}
+
+.live-error {
+  color: #ff7800;
+}
+
+/* Make the live player responsive */
+.player-video-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+  position: relative;
+}
+
+/* LIVE indicator */
+.live-stream-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.live-stream-dot {
+  width: 9px;
+  height: 9px;
+  background: #ff2020;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(255, 32, 32, .8);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .player-video-wrap {
+    aspect-ratio: 16 / 9;
+  }
+
+  .neema-live-video {
+    min-height: 220px;
+  }
+}
+</style>
 </head>
+
 <body>
+
 <header class="header">
   <div class="container nav">
-    <a class="brand" href="#home"><img src="assets/neema-logo.png" alt="NEEMA TV"></a>
+
+    <a class="brand" href="#home">
+      <img src="assets/neema-logo.png" alt="NEEMA TV">
+    </a>
+
     <nav>
       <a class="active" href="#home">Home</a>
       <a href="#live">Live TV</a>
@@ -21,74 +90,866 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+
     <div class="nav-contact">
       <a href="https://www.youtube.com/@NEEMATV-l7f" target="_blank">▶</a>
       <a href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank">f</a>
       <a href="https://wa.me/254706107773" target="_blank">☏</a>
       <a class="phone" href="tel:+254706107773">+254706107773</a>
     </div>
+
   </div>
 </header>
 
+
 <main id="home">
+
+<!-- ================================
+     HERO
+================================ -->
+
 <section class="hero">
+
   <div class="hero-overlay"></div>
+
   <div class="container hero-inner">
+
     <div class="on-air-wrap">
-      <img class="hero-logo" src="assets/neema-logo.png" alt="NEEMA TV logo">
-      <div class="on-air"><span class="signal">◉</span><span>ON AIR</span></div>
-      <p>BRINGING HOPE <b>•</b> SHARING THE WORD <b>•</b> TRANSFORMING LIVES</p>
+
+      <img
+        class="hero-logo"
+        src="assets/neema-logo.png"
+        alt="NEEMA TV logo"
+      >
+
+      <div class="on-air">
+        <span class="signal">◉</span>
+        <span>ON AIR</span>
+      </div>
+
+      <p>
+        BRINGING HOPE
+        <b>•</b>
+        SHARING THE WORD
+        <b>•</b>
+        TRANSFORMING LIVES
+      </p>
+
     </div>
+
+
     <div class="hero-copy">
-      <span class="kicker">THE GARDEN OF SUFFICIENT GRACE</span>
-      <h1>Awaken. Inspire. Lead.</h1>
-      <p>Christ-centered television bringing the Gospel of Jesus Christ to homes, communities and nations.</p>
-      <div class="actions"><a class="btn primary" href="#live">🔴 WATCH LIVE</a><a class="btn light" href="#programs">VIEW PROGRAMS</a></div>
+
+      <span class="kicker">
+        THE GARDEN OF SUFFICIENT GRACE
+      </span>
+
+      <h1>
+        Awaken. Inspire. Lead.
+      </h1>
+
+      <p>
+        Christ-centered television bringing the Gospel of Jesus Christ
+        to homes, communities and nations.
+      </p>
+
+      <div class="actions">
+
+        <a class="btn primary" href="#live">
+          🔴 WATCH LIVE
+        </a>
+
+        <a class="btn light" href="#programs">
+          VIEW PROGRAMS
+        </a>
+
+      </div>
+
     </div>
+
+
     <div class="hero-programs">
-      <div class="hero-program"><img src="assets/mke-wa-thamani.jpg" alt="Mke wa Thamani"><strong>Mke wa Thamani</strong><small>Monday • 8:00–8:30 PM</small></div>
-      <div class="hero-program"><img src="assets/safari-ya-neema.png" alt="Safari ya Neema"><strong>Safari ya Neema</strong><small>Tuesday • 8:00–8:30 PM</small></div>
-      <div class="hero-program"><img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana"><strong>Wema wa Bwana</strong><small>Wednesday • 8:00–8:30 PM</small></div>
+
+      <div class="hero-program">
+        <img
+          src="assets/mke-wa-thamani.jpg"
+          alt="Mke wa Thamani"
+        >
+        <strong>Mke wa Thamani</strong>
+        <small>Monday • 8:00–8:30 PM</small>
+      </div>
+
+      <div class="hero-program">
+        <img
+          src="assets/safari-ya-neema.png"
+          alt="Safari ya Neema"
+        >
+        <strong>Safari ya Neema</strong>
+        <small>Tuesday • 8:00–8:30 PM</small>
+      </div>
+
+      <div class="hero-program">
+        <img
+          src="assets/wema-wa-bwana.jpg"
+          alt="Wema wa Bwana"
+        >
+        <strong>Wema wa Bwana</strong>
+        <small>Wednesday • 8:00–8:30 PM</small>
+      </div>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- ================================
+     LIVE TV
+================================ -->
 
 <section id="live" class="section live">
-<div class="container">
-  <div class="section-head"><div><span class="kicker">NEEMA TV</span><h2>Watch NEEMA TV</h2></div><span class="live-badge"><i></i> ON AIR</span></div>
-  <div class="live-grid">
-    <div class="player">
-      <div class="player-top"><span>NEEMA TV • LIVE</span><span>● ON AIR</span></div>
-      <iframe src="https://www.youtube.com/embed/vct8klDFNLM?rel=0" title="NEEMA TV YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <a class="youtube-btn" href="https://www.youtube.com/watch?v=vct8klDFNLM" target="_blank">▶ Watch on YouTube</a>
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <span class="kicker">
+          NEEMA TV
+        </span>
+
+        <h2>
+          Watch NEEMA TV
+        </h2>
+
+      </div>
+
+      <span class="live-badge">
+        <i></i> ON AIR
+      </span>
+
     </div>
-    <div class="live-info">
-      <img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana">
-      <div><span class="mini">CURRENT VIDEO</span><h3>Wema wa Bwana</h3><p>By Pst Joel Kamau</p><a href="https://www.youtube.com/watch?v=vct8klDFNLM" target="_blank">Open broadcast →</a></div>
+
+
+    <div class="live-grid">
+
+
+      <!-- LIVE PLAYER -->
+
+      <div class="player">
+
+        <div class="player-top">
+
+          <span class="live-stream-label">
+            <span class="live-stream-dot"></span>
+            NEEMA TV • LIVE
+          </span>
+
+          <span>
+            ● ON AIR
+          </span>
+
+        </div>
+
+
+        <div class="player-video-wrap">
+
+          <video
+            id="neemaLive"
+            class="neema-live-video"
+            controls
+            autoplay
+            muted
+            playsinline
+            preload="auto"
+          ></video>
+
+        </div>
+
+
+        <p
+          id="liveStatus"
+          class="live-status"
+        >
+          Connecting to NEEMA TV Live...
+        </p>
+
+      </div>
+
+
+      <!-- LIVE INFORMATION -->
+
+      <div class="live-info">
+
+        <img
+          src="assets/wema-wa-bwana.jpg"
+          alt="NEEMA TV"
+        >
+
+        <div>
+
+          <span class="mini">
+            NEEMA TV LIVE
+          </span>
+
+          <h3>
+            NEEMA TV
+          </h3>
+
+          <p>
+            The Garden of Sufficient Grace
+          </p>
+
+          <a href="#programs">
+            View program schedule →
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
+
   </div>
-</div>
+
 </section>
+
+
+<!-- ================================
+     PROGRAMS
+================================ -->
 
 <section id="programs" class="section programs">
-<div class="container">
-  <div class="section-head center"><div><span class="kicker">PROGRAM SCHEDULE</span><h2>MAIN PROGRAMS</h2><p>Monday to Friday • 8:00–8:30 PM</p></div></div>
-  <div class="cards">
-    <article class="program-card"><img src="assets/mke-wa-thamani.jpg" alt="Mke wa Thamani"><div><span class="day monday">MONDAY</span><h3>Mke wa Thamani</h3><p>8:00–8:30 PM</p><strong>By Ann Kamau</strong></div></article>
-    <article class="program-card"><img src="assets/safari-ya-neema.png" alt="Safari ya Neema"><div><span class="day tuesday">TUESDAY</span><h3>Safari ya Neema</h3><p>8:00–8:30 PM</p><strong>Host: Recorbert Chepkwony</strong></div></article>
-    <article class="program-card"><img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana"><div><span class="day wednesday">WEDNESDAY</span><h3>Wema wa Bwana</h3><p>8:00–8:30 PM</p><strong>By Pst Joel Kamau</strong></div></article>
-    <article class="program-card"><img src="assets/sauti-ya-imani.png" alt="Sauti ya Imani"><div><span class="day thursday">THURSDAY</span><h3>Sauti ya Imani</h3><p>8:00–8:30 PM</p><strong>By Bshp Francis Muya</strong></div></article>
-    <article class="program-card"><img src="assets/nuru-ya-wokovu.png" alt="Nuru ya Wokovu"><div><span class="day friday">FRIDAY</span><h3>Nuru ya Wokovu</h3><p>8:00–8:30 PM</p><strong>By Mrs Phylis Muya</strong></div></article>
-    <article class="program-card extra"><img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana"><div><span class="day allweek">MON–FRI</span><h3>Wema wa Bwana</h3><p>8:00–8:30 PM</p><strong>By Pst Joel Kamau</strong></div></article>
+
+  <div class="container">
+
+    <div class="section-head center">
+
+      <div>
+
+        <span class="kicker">
+          PROGRAM SCHEDULE
+        </span>
+
+        <h2>
+          MAIN PROGRAMS
+        </h2>
+
+        <p>
+          Monday to Friday • 8:00–8:30 PM
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <!-- MONDAY -->
+
+      <article class="program-card">
+
+        <img
+          src="assets/mke-wa-thamani.jpg"
+          alt="Mke wa Thamani"
+        >
+
+        <div>
+
+          <span class="day monday">
+            MONDAY
+          </span>
+
+          <h3>
+            Mke wa Thamani
+          </h3>
+
+          <p>
+            8:00–8:30 PM
+          </p>
+
+          <strong>
+            By Ann Kamau
+          </strong>
+
+        </div>
+
+      </article>
+
+
+      <!-- TUESDAY -->
+
+      <article class="program-card">
+
+        <img
+          src="assets/safari-ya-neema.png"
+          alt="Safari ya Neema"
+        >
+
+        <div>
+
+          <span class="day tuesday">
+            TUESDAY
+          </span>
+
+          <h3>
+            Safari ya Neema
+          </h3>
+
+          <p>
+            8:00–8:30 PM
+          </p>
+
+          <strong>
+            Host: Recorbert Chepkwony
+          </strong>
+
+        </div>
+
+      </article>
+
+
+      <!-- WEDNESDAY -->
+
+      <article class="program-card">
+
+        <img
+          src="assets/wema-wa-bwana.jpg"
+          alt="Wema wa Bwana"
+        >
+
+        <div>
+
+          <span class="day wednesday">
+            WEDNESDAY
+          </span>
+
+          <h3>
+            Wema wa Bwana
+          </h3>
+
+          <p>
+            8:00–8:30 PM
+          </p>
+
+          <strong>
+            By Pst Joel Kamau
+          </strong>
+
+        </div>
+
+      </article>
+
+
+      <!-- THURSDAY -->
+
+      <article class="program-card">
+
+        <img
+          src="assets/sauti-ya-imani.png"
+          alt="Sauti ya Imani"
+        >
+
+        <div>
+
+          <span class="day thursday">
+            THURSDAY
+          </span>
+
+          <h3>
+            Sauti ya Imani
+          </h3>
+
+          <p>
+            8:00–8:30 PM
+          </p>
+
+          <strong>
+            By Bshp Francis Muya
+          </strong>
+
+        </div>
+
+      </article>
+
+
+      <!-- FRIDAY -->
+
+      <article class="program-card">
+
+        <img
+          src="assets/nuru-ya-wokovu.png"
+          alt="Nuru ya Wokovu"
+        >
+
+        <div>
+
+          <span class="day friday">
+            FRIDAY
+          </span>
+
+          <h3>
+            Nuru ya Wokovu
+          </h3>
+
+          <p>
+            8:00–8:30 PM
+          </p>
+
+          <strong>
+            By Mrs Phylis Muya
+          </strong>
+
+        </div>
+
+      </article>
+
+    </div>
+
   </div>
-</div>
+
 </section>
 
-<section id="watch" class="section watch"><div class="container watch-inner"><div><span class="kicker">WATCH AGAIN</span><h2>Keep growing in grace.</h2><p>Watch NEEMA TV programs and teaching on YouTube.</p></div><a class="btn primary" href="https://www.youtube.com/@NEEMATV-l7f" target="_blank">OPEN YOUTUBE CHANNEL →</a></div></section>
 
-<section id="about" class="section about"><div class="container about-grid"><div><span class="kicker">ABOUT NEEMA TV</span><h2>The Garden of Sufficient Grace</h2><p>By the grace of God, Neema TV exists to awaken a deep hunger for God, inspire people to live beyond ordinary life through faith, and lead souls to salvation through the transforming Gospel of Jesus Christ.</p><p>Our vision is to reach the unreached with the Gospel of Jesus Christ in villages, cities and nations.</p></div><div class="values"><div><b>01</b><h3>AWAKEN</h3><p>Awaken hunger for God.</p></div><div><b>02</b><h3>INSPIRE</h3><p>Inspire faith-filled living.</p></div><div><b>03</b><h3>LEAD</h3><p>Lead people to Christ.</p></div></div></div></section>
+<!-- ================================
+     WATCH AGAIN
+================================ -->
 
-<section id="contact" class="section contact"><div class="container contact-box"><div><span class="kicker">CONTACT NEEMA TV</span><h2>Stay connected.</h2><p>Reach us for programs, ministry and broadcast information.</p></div><div class="contact-details"><a href="tel:+254706107773"><span>PHONE</span><strong>+254706107773</strong></a><a href="https://wa.me/+254706107773" target="_blank"><span>WHATSAPP</span><strong>+254706107773</strong></a><a href="mailto:neematv001@gmail.com"><span>EMAIL</span><strong>neematv001@gmail.com</strong></a></div></div></section>
+<section id="watch" class="section watch">
+
+  <div class="container watch-inner">
+
+    <div>
+
+      <span class="kicker">
+        WATCH AGAIN
+      </span>
+
+      <h2>
+        Keep growing in grace.
+      </h2>
+
+      <p>
+        Watch NEEMA TV programs and teaching on YouTube.
+      </p>
+
+    </div>
+
+    <a
+      class="btn primary"
+      href="https://www.youtube.com/@NEEMATV-l7f"
+      target="_blank"
+    >
+      OPEN YOUTUBE CHANNEL →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ================================
+     ABOUT
+================================ -->
+
+<section id="about" class="section about">
+
+  <div class="container about-grid">
+
+    <div>
+
+      <span class="kicker">
+        ABOUT NEEMA TV
+      </span>
+
+      <h2>
+        The Garden of Sufficient Grace
+      </h2>
+
+      <p>
+        By the grace of God, Neema TV exists to awaken a deep hunger
+        for God, inspire people to live beyond ordinary life through
+        faith, and lead souls to salvation through the transforming
+        Gospel of Jesus Christ.
+      </p>
+
+      <p>
+        Our vision is to reach the unreached with the Gospel of Jesus
+        Christ in villages, cities and nations.
+      </p>
+
+    </div>
+
+
+    <div class="values">
+
+      <div>
+
+        <b>01</b>
+
+        <h3>
+          AWAKEN
+        </h3>
+
+        <p>
+          Awaken hunger for God.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <b>02</b>
+
+        <h3>
+          INSPIRE
+        </h3>
+
+        <p>
+          Inspire faith-filled living.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <b>03</b>
+
+        <h3>
+          LEAD
+        </h3>
+
+        <p>
+          Lead people to Christ.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================================
+     CONTACT
+================================ -->
+
+<section id="contact" class="section contact">
+
+  <div class="container contact-box">
+
+    <div>
+
+      <span class="kicker">
+        CONTACT NEEMA TV
+      </span>
+
+      <h2>
+        Stay connected.
+      </h2>
+
+      <p>
+        Reach us for programs, ministry and broadcast information.
+      </p>
+
+    </div>
+
+
+    <div class="contact-details">
+
+      <a href="tel:+254706107773">
+
+        <span>
+          PHONE
+        </span>
+
+        <strong>
+          +254706107773
+        </strong>
+
+      </a>
+
+
+      <a
+        href="https://wa.me/254706107773"
+        target="_blank"
+      >
+
+        <span>
+          WHATSAPP
+        </span>
+
+        <strong>
+          +254706107773
+        </strong>
+
+      </a>
+
+
+      <a href="mailto:neematv001@gmail.com">
+
+        <span>
+          EMAIL
+        </span>
+
+        <strong>
+          neematv001@gmail.com
+        </strong>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
 </main>
-<footer><div class="container footer"><img src="assets/neema-logo.png" alt="NEEMA TV"><div><strong>NEEMA TV</strong><span>The Garden of Sufficient Grace</span></div><div>AWAKEN • INSPIRE • LEAD</div><div>© 2026 NEEMA TV</div></div></footer>
-</body></html>
+
+
+<!-- ================================
+     FOOTER
+================================ -->
+
+<footer>
+
+  <div class="container footer">
+
+    <img
+      src="assets/neema-logo.png"
+      alt="NEEMA TV"
+    >
+
+    <div>
+
+      <strong>
+        NEEMA TV
+      </strong>
+
+      <span>
+        The Garden of Sufficient Grace
+      </span>
+
+    </div>
+
+    <div>
+      AWAKEN • INSPIRE • LEAD
+    </div>
+
+    <div>
+      © 2026 NEEMA TV
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ================================
+     HLS.JS
+================================ -->
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<script>
+
+const video = document.getElementById("neemaLive");
+const status = document.getElementById("liveStatus");
+
+const NEEMA_HLS =
+  "https://win-qvh0gb4nlgr.tail9f5d71.ts.net/hls/neematv.m3u8";
+
+
+/* =================================
+   NATIVE HLS
+   Safari / compatible browsers
+================================= */
+
+if (video.canPlayType("application/vnd.apple.mpegurl")) {
+
+  video.src = NEEMA_HLS;
+
+  video.addEventListener("loadedmetadata", function () {
+
+    status.textContent = "● NEEMA TV IS LIVE";
+    status.classList.remove("live-error");
+
+    video.play().catch(function () {});
+
+  });
+
+  video.addEventListener("error", function () {
+
+    status.textContent =
+      "Reconnecting to NEEMA TV...";
+
+    status.classList.add("live-error");
+
+  });
+
+}
+
+
+/* =================================
+   HLS.JS
+   Chrome / Edge / Firefox / Android
+================================= */
+
+else if (Hls.isSupported()) {
+
+  const hls = new Hls({
+
+    liveSyncDurationCount: 3,
+
+    enableWorker: true,
+
+    lowLatencyMode: false,
+
+    backBufferLength: 30
+
+  });
+
+
+  hls.loadSource(NEEMA_HLS);
+
+  hls.attachMedia(video);
+
+
+  /* Stream connected */
+
+  hls.on(
+    Hls.Events.MANIFEST_PARSED,
+    function () {
+
+      status.textContent =
+        "● NEEMA TV IS LIVE";
+
+      status.classList.remove("live-error");
+
+      video.play().catch(function () {});
+
+    }
+  );
+
+
+  /* Network / media recovery */
+
+  hls.on(
+    Hls.Events.ERROR,
+    function (event, data) {
+
+      console.log(
+        "NEEMA TV HLS error:",
+        data
+      );
+
+
+      if (data.fatal) {
+
+        status.textContent =
+          "Reconnecting to NEEMA TV...";
+
+        status.classList.add("live-error");
+
+
+        if (
+          data.type ===
+          Hls.ErrorTypes.NETWORK_ERROR
+        ) {
+
+          setTimeout(function () {
+
+            hls.startLoad();
+
+          }, 3000);
+
+        }
+
+
+        else if (
+          data.type ===
+          Hls.ErrorTypes.MEDIA_ERROR
+        ) {
+
+          setTimeout(function () {
+
+            hls.recoverMediaError();
+
+          }, 1000);
+
+        }
+
+
+        else {
+
+          hls.destroy();
+
+          setTimeout(function () {
+
+            location.reload();
+
+          }, 5000);
+
+        }
+
+      }
+
+    }
+  );
+
+
+  /* Stream playing */
+
+  video.addEventListener(
+    "playing",
+    function () {
+
+      status.textContent =
+        "● NEEMA TV IS LIVE";
+
+      status.classList.remove("live-error");
+
+    }
+  );
+
+
+  /* Video waiting */
+
+  video.addEventListener(
+    "waiting",
+    function () {
+
+      status.textContent =
+        "Buffering NEEMA TV...";
+
+    }
+  );
+
+}
+
+
+/* =================================
+   UNSUPPORTED BROWSER
+================================= */
+
+else {
+
+  status.textContent =
+    "Your browser does not support live HLS playback.";
+
+  status.classList.add("live-error");
+
+}
+
+</script>
+
+</body>
+</html>
