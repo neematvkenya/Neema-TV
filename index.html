@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -312,7 +313,7 @@
       background: linear-gradient(145deg, #07351e, #03170d);
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 18px;
-      padding: 25px;
+      padding: 0 0 25px;
       transition: .3s;
       overflow: hidden;
     }
@@ -321,6 +322,18 @@
       transform: translateY(-7px);
       border-color: #079447;
       box-shadow: 0 15px 35px rgba(0,0,0,.3);
+    }
+
+    .program-image {
+      width: 100%;
+      height: 190px;
+      display: block;
+      object-fit: cover;
+      background: #03170d;
+    }
+
+    .program-content {
+      padding: 20px 25px 0;
     }
 
     .day {
@@ -529,6 +542,10 @@
       .program-grid {
         grid-template-columns: 1fr;
       }
+
+      .program-image {
+        height: 210px;
+      }
     }
   </style>
 </head>
@@ -544,13 +561,9 @@
 
     <a href="#home" class="brand">
 
-      <!--
-        If your logo file has a different name,
-        change neema_tv_logo.png below.
-      -->
-
+      <!-- ORIGINAL NEEMA TV LOGO -->
       <img
-        src="neema_tv_logo.png"
+        src="assets/neema-logo.png"
         alt="NEEMA TV Logo"
         class="brand-logo"
       >
@@ -699,7 +712,6 @@
 
     </div>
 
-
     <div class="program-grid">
 
 
@@ -710,21 +722,31 @@
          rel="noopener noreferrer"
          class="program-card">
 
-        <div class="day">
-          Monday • 8:00 – 8:30 PM
+        <img
+          src="assets/mke-wa-thamani.jpg"
+          alt="Mke wa Thamani"
+          class="program-image"
+        >
+
+        <div class="program-content">
+
+          <div class="day">
+            Monday • 8:00 – 8:30 PM
+          </div>
+
+          <h3>
+            Mke wa Thamani
+          </h3>
+
+          <div class="presenter">
+            Ann Kamau
+          </div>
+
+          <span class="program-button">
+            ▶ WATCH PROGRAMME
+          </span>
+
         </div>
-
-        <h3>
-          Mke wa Thamani
-        </h3>
-
-        <div class="presenter">
-          Ann Kamau
-        </div>
-
-        <span class="program-button">
-          ▶ WATCH PROGRAMME
-        </span>
 
       </a>
 
@@ -736,21 +758,31 @@
          rel="noopener noreferrer"
          class="program-card">
 
-        <div class="day">
-          Tuesday • 8:00 – 8:30 PM
+        <img
+          src="assets/safari-ya-neema.png"
+          alt="Safari ya Neema"
+          class="program-image"
+        >
+
+        <div class="program-content">
+
+          <div class="day">
+            Tuesday • 8:00 – 8:30 PM
+          </div>
+
+          <h3>
+            Safari ya Neema
+          </h3>
+
+          <div class="presenter">
+            Recorbert Chepkwony
+          </div>
+
+          <span class="program-button">
+            ▶ WATCH PROGRAMME
+          </span>
+
         </div>
-
-        <h3>
-          Safari ya Neema
-        </h3>
-
-        <div class="presenter">
-          Recorbert Chepkwony
-        </div>
-
-        <span class="program-button">
-          ▶ WATCH PROGRAMME
-        </span>
 
       </a>
 
@@ -762,21 +794,31 @@
          rel="noopener noreferrer"
          class="program-card">
 
-        <div class="day">
-          Wednesday • 8:00 – 8:30 PM
+        <img
+          src="assets/wema-wa-bwana.jpg"
+          alt="Wema wa Bwana"
+          class="program-image"
+        >
+
+        <div class="program-content">
+
+          <div class="day">
+            Wednesday • 8:00 – 8:30 PM
+          </div>
+
+          <h3>
+            Wema wa Bwana
+          </h3>
+
+          <div class="presenter">
+            Pst Joel Kamau
+          </div>
+
+          <span class="program-button">
+            ▶ WATCH PROGRAMME
+          </span>
+
         </div>
-
-        <h3>
-          Wema wa Bwana
-        </h3>
-
-        <div class="presenter">
-          Pst Joel Kamau
-        </div>
-
-        <span class="program-button">
-          ▶ WATCH PROGRAMME
-        </span>
 
       </a>
 
@@ -788,21 +830,31 @@
          rel="noopener noreferrer"
          class="program-card">
 
-        <div class="day">
-          Thursday • 8:00 – 8:30 PM
+        <img
+          src="assets/sauti-ya-imani.png"
+          alt="Sauti ya Imani"
+          class="program-image"
+        >
+
+        <div class="program-content">
+
+          <div class="day">
+            Thursday • 8:00 – 8:30 PM
+          </div>
+
+          <h3>
+            Sauti ya Imani
+          </h3>
+
+          <div class="presenter">
+            Bshp Francis Muya
+          </div>
+
+          <span class="program-button">
+            ▶ WATCH PROGRAMME
+          </span>
+
         </div>
-
-        <h3>
-          Sauti ya Imani
-        </h3>
-
-        <div class="presenter">
-          Bshp Francis Muya
-        </div>
-
-        <span class="program-button">
-          ▶ WATCH PROGRAMME
-        </span>
 
       </a>
 
@@ -814,21 +866,31 @@
          rel="noopener noreferrer"
          class="program-card">
 
-        <div class="day">
-          Friday • 8:00 – 8:30 PM
+        <img
+          src="assets/nuru-ya-wokovu.png"
+          alt="Nuru ya Wokovu"
+          class="program-image"
+        >
+
+        <div class="program-content">
+
+          <div class="day">
+            Friday • 8:00 – 8:30 PM
+          </div>
+
+          <h3>
+            Nuru ya Wokovu
+          </h3>
+
+          <div class="presenter">
+            Mrs Phylis Muya
+          </div>
+
+          <span class="program-button">
+            ▶ WATCH PROGRAMME
+          </span>
+
         </div>
-
-        <h3>
-          Nuru ya Wokovu
-        </h3>
-
-        <div class="presenter">
-          Mrs Phylis Muya
-        </div>
-
-        <span class="program-button">
-          ▶ WATCH PROGRAMME
-        </span>
 
       </a>
 
@@ -902,7 +964,6 @@
       </p>
 
     </div>
-
 
     <div class="contact-grid">
 
@@ -1004,7 +1065,6 @@
       </p>
 
     </div>
-
 
     <div class="socials">
 
@@ -1119,3 +1179,4 @@
 
 </body>
 </html>
+```
