@@ -510,9 +510,12 @@
       🔴 WATCH LIVE
     </a>
 
-    <!-- WHATSAPP -->
+    <!-- WHATSAPP
+         No pre-filled message.
+         Client can type their own message freely.
+    -->
     <a
-      href="https://wa.me/254706107773?text=Hello%20and%20welcome%20to%20NEEMA%20TV%21%20Thank%20you%20for%20reaching%20out.%20We%20are%20here%20to%20serve%20and%20encourage%20you%20in%20the%20Lord.%20How%20may%20we%20assist%20you%20today%3F"
+      href="https://wa.me/254706107773"
       target="_blank"
       rel="noopener noreferrer"
       class="btn btn-whatsapp"
@@ -520,9 +523,12 @@
       💬 WHATSAPP
     </a>
 
-    <!-- SMS -->
+    <!-- SMS
+         No pre-filled message.
+         Client can type their own message freely.
+    -->
     <a
-      href="sms:+254706107773?body=Hello%20and%20welcome%20to%20NEEMA%20TV%21%20Thank%20you%20for%20reaching%20out.%20We%20are%20here%20to%20serve%20and%20encourage%20you%20in%20the%20Lord.%20How%20may%20we%20assist%20you%20today%3F"
+      href="sms:+254706107773"
       class="btn btn-sms"
     >
       ✉️ REQUEST PRAYER / SMS
@@ -619,7 +625,6 @@
       </div>
     </div>
 
-
     <!-- TUESDAY -->
     <div class="programme-card">
 
@@ -651,7 +656,6 @@
 
       </div>
     </div>
-
 
     <!-- WEDNESDAY -->
     <div class="programme-card">
@@ -685,7 +689,6 @@
       </div>
     </div>
 
-
     <!-- THURSDAY -->
     <div class="programme-card">
 
@@ -717,7 +720,6 @@
 
       </div>
     </div>
-
 
     <!-- FRIDAY -->
     <div class="programme-card">
@@ -800,7 +802,6 @@
 
   <div class="contact-grid">
 
-
     <!-- WHATSAPP -->
     <div class="contact-card">
 
@@ -811,7 +812,7 @@
       </p>
 
       <a
-        href="https://wa.me/254706107773?text=Hello%20and%20welcome%20to%20NEEMA%20TV%21%20Thank%20you%20for%20reaching%20out.%20We%20are%20here%20to%20serve%20and%20encourage%20you%20in%20the%20Lord.%20How%20may%20we%20assist%20you%20today%3F"
+        href="https://wa.me/254706107773"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -819,7 +820,6 @@
       </a>
 
     </div>
-
 
     <!-- SMS -->
     <div class="contact-card">
@@ -831,13 +831,12 @@
       </p>
 
       <a
-        href="sms:+254706107773?body=Hello%20and%20welcome%20to%20NEEMA%20TV%21%20Thank%20you%20for%20reaching%20out.%20We%20are%20here%20to%20serve%20and%20encourage%20you%20in%20the%20Lord.%20How%20may%20we%20assist%20you%20today%3F"
+        href="sms:+254706107773"
       >
         +254 706 107 773
       </a>
 
     </div>
-
 
     <!-- EMAIL -->
     <div class="contact-card">
@@ -853,7 +852,6 @@
       </a>
 
     </div>
-
 
     <!-- PHONE -->
     <div class="contact-card">
@@ -871,7 +869,6 @@
     </div>
 
   </div>
-
 
   <!-- SOCIAL MEDIA -->
   <div class="social">
@@ -990,6 +987,7 @@
 
         if (data.fatal) {
           switch (data.type) {
+
             case Hls.ErrorTypes.NETWORK_ERROR:
               console.log("NEEMA TV: Network error. Retrying...");
               hls.startLoad();
@@ -1017,3 +1015,4 @@
 
 </body>
 </html>
+
