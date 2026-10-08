@@ -1,635 +1,1120 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#087b3d">
-<meta name="description" content="NEEMA TV — The Garden of Sufficient Grace. Watch, worship, learn and stay connected.">
+  <title>NEEMA TV | The Garden of Sufficient Grace</title>
 
-<title>NEEMA TV | The Garden of Sufficient Grace</title>
+  <meta name="description"
+        content="NEEMA TV — The Garden of Sufficient Grace. Bringing hope, sharing the Word and transforming lives through Christ-centered television.">
 
-<link rel="icon" href="assets/neema-logo.png">
-<link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
-.neema-live-video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: #000;
-  object-fit: contain;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.live-status {
-  margin-top: 12px;
-  color: #079447;
-  font-weight: 700;
-  text-align: center;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #021f10;
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-.live-error {
-  color: #ff7800;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.player-video-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  overflow: hidden;
-  border-radius: 0 0 12px 12px;
-  position: relative;
-}
+    /* =========================
+       HEADER
+    ========================== */
 
-.live-stream-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2, 31, 16, 0.97);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+    }
 
-.live-stream-dot {
-  width: 9px;
-  height: 9px;
-  background: #ff2020;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 10px rgba(255, 32, 32, .8);
-}
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-@media (max-width: 700px) {
-  .player-video-wrap {
-    aspect-ratio: 16 / 9;
-  }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+    }
 
-  .neema-live-video {
-    min-height: 220px;
-  }
-}
-</style>
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 4px;
+    }
 
+    .brand-text {
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: #079447;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .brand-text span {
+      font-size: 10px;
+      color: #ffffff;
+      opacity: .8;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    nav a {
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      background: #079447;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        radial-gradient(circle at center, rgba(7,148,71,.22), transparent 45%),
+        linear-gradient(135deg, #021f10, #043b20, #021f10);
+    }
+
+    .hero-content {
+      max-width: 1000px;
+    }
+
+    .welcome {
+      color: #ffffff;
+      font-size: clamp(30px, 6vw, 68px);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .neema {
+      color: #079447;
+      font-size: clamp(45px, 9vw, 100px);
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .garden {
+      color: #ffb000;
+      font-size: clamp(25px, 5vw, 55px);
+      font-weight: 800;
+      margin: 5px 0 20px;
+    }
+
+    .motto {
+      color: #ffffff;
+      font-weight: bold;
+      letter-spacing: 3px;
+      font-size: clamp(14px, 2vw, 20px);
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      max-width: 750px;
+      margin: auto;
+      color: rgba(255,255,255,.85);
+      font-size: 17px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: .3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-live {
+      background: #d60000;
+      color: #ffffff;
+      animation: pulse 1.7s infinite;
+    }
+
+    .btn-green {
+      background: #079447;
+      color: #ffffff;
+    }
+
+    .btn-gold {
+      background: #ffb000;
+      color: #111111;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(214,0,0,.6); }
+      70% { box-shadow: 0 0 0 14px rgba(214,0,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(214,0,0,0); }
+    }
+
+    /* =========================
+       GENERAL
+    ========================== */
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 5vw, 42px);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: rgba(255,255,255,.7);
+    }
+
+    /* =========================
+       LIVE
+    ========================== */
+
+    .live-section {
+      background: #03170d;
+    }
+
+    .live-box {
+      max-width: 950px;
+      margin: auto;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #000;
+      box-shadow: 0 15px 50px rgba(0,0,0,.4);
+    }
+
+    .live-header {
+      padding: 15px 20px;
+      background: #071f13;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+    }
+
+    .live-dot {
+      width: 12px;
+      height: 12px;
+      background: red;
+      border-radius: 50%;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: .3; }
+    }
+
+    .live-screen {
+      min-height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      background: #000;
+    }
+
+    .live-screen h3 {
+      font-size: 30px;
+    }
+
+    .live-screen p {
+      color: #aaa;
+      margin: 10px 0 20px;
+    }
+
+    /* =========================
+       PROGRAMMES
+    ========================== */
+
+    .programmes {
+      background: #021f10;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .program-card {
+      position: relative;
+      background: linear-gradient(145deg, #07351e, #03170d);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+      padding: 25px;
+      transition: .3s;
+      overflow: hidden;
+    }
+
+    .program-card:hover {
+      transform: translateY(-7px);
+      border-color: #079447;
+      box-shadow: 0 15px 35px rgba(0,0,0,.3);
+    }
+
+    .day {
+      color: #ffb000;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .program-card h3 {
+      font-size: 23px;
+      margin: 8px 0;
+    }
+
+    .presenter {
+      color: rgba(255,255,255,.7);
+      margin-bottom: 18px;
+    }
+
+    .program-button {
+      display: inline-block;
+      background: #079447;
+      padding: 9px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .program-button:hover {
+      background: #0bb75a;
+    }
+
+    /* =========================
+       EVENT
+    ========================== */
+
+    .event-section {
+      background:
+        linear-gradient(rgba(2,31,16,.92), rgba(2,31,16,.95)),
+        radial-gradient(circle at center, #079447, transparent 55%);
+    }
+
+    .event-card {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      padding: 45px 25px;
+      border-radius: 25px;
+      border: 1px solid rgba(255,176,0,.35);
+      background: linear-gradient(145deg, #06371e, #021f10);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+
+    .coming {
+      color: #ffb000;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .event-card h2 {
+      font-size: clamp(40px, 8vw, 75px);
+      margin: 10px 0;
+    }
+
+    .event-date {
+      color: #079447;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .event-text {
+      max-width: 650px;
+      margin: 20px auto;
+      color: rgba(255,255,255,.8);
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact {
+      background: #03170d;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .contact-card {
+      padding: 25px;
+      text-align: center;
+      background: #07351e;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: #079447;
+    }
+
+    .contact-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: rgba(255,255,255,.7);
+      font-size: 14px;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================== */
+
+    .social-section {
+      background: #021f10;
+      text-align: center;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .social-btn {
+      min-width: 145px;
+      padding: 13px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      background: #07351e;
+      border: 1px solid rgba(255,255,255,.12);
+      transition: .3s;
+    }
+
+    .social-btn:hover {
+      background: #079447;
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      padding: 35px 20px;
+      background: #010d07;
+      text-align: center;
+    }
+
+    footer strong {
+      color: #079447;
+      font-size: 22px;
+    }
+
+    footer p {
+      margin-top: 8px;
+      color: rgba(255,255,255,.6);
+      font-size: 13px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 700px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav a {
+        font-size: 12px;
+        padding: 7px 9px;
+      }
+
+      .hero {
+        min-height: 85vh;
+      }
+
+      .live-screen {
+        min-height: 250px;
+      }
+
+      section {
+        padding: 55px 15px;
+      }
+
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header">
-  <div class="container nav">
+<!-- =========================
+     HEADER
+========================== -->
 
-```
-<a class="brand" href="#home">
-  <img src="assets/neema-logo.png" alt="NEEMA TV">
-</a>
+<header>
+  <div class="nav">
 
-<nav>
-  <a class="active" href="#home">Home</a>
-  <a href="#live">Live TV</a>
-  <a href="#programs">Programs</a>
-  <a href="#watch">Watch Again</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
+    <a href="#home" class="brand">
 
-<div class="nav-contact">
-  <a href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener">▶</a>
-  <a href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener">f</a>
-  <a href="https://wa.me/254706107773" target="_blank" rel="noopener">☏</a>
-  <a class="phone" href="tel:+254706107773">+254706107773</a>
-</div>
-```
+      <!--
+        If your logo file has a different name,
+        change neema_tv_logo.png below.
+      -->
+
+      <img
+        src="neema_tv_logo.png"
+        alt="NEEMA TV Logo"
+        class="brand-logo"
+      >
+
+      <div class="brand-text">
+        <strong>NEEMA TV</strong>
+        <span>THE GARDEN OF SUFFICIENT GRACE</span>
+      </div>
+
+    </a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#live">Live</a>
+      <a href="#programmes">Programmes</a>
+      <a href="#events">Events</a>
+      <a href="#social">Social</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
   </div>
 </header>
 
-<main id="home">
 
-<section class="hero">
+<!-- =========================
+     HERO
+========================== -->
 
-  <div class="hero-overlay"></div>
+<section class="hero" id="home">
 
-  <div class="container hero-inner">
+  <div class="hero-content">
 
-```
-<div class="on-air-wrap">
-
-  <img
-    class="hero-logo"
-    src="assets/neema-logo.png"
-    alt="NEEMA TV logo"
-  >
-
-  <div class="on-air">
-    <span class="signal">◉</span>
-    <span>ON AIR</span>
-  </div>
-
-  <p>
-    BRINGING HOPE
-    <b>•</b>
-    SHARING THE WORD
-    <b>•</b>
-    TRANSFORMING LIVES
-  </p>
-
-</div>
-
-<div class="hero-copy">
-
-  <span class="kicker">
-    THE GARDEN OF SUFFICIENT GRACE
-  </span>
-
-  <h1>
-    Awaken. Inspire. Lead.
-  </h1>
-
-  <p>
-    Christ-centered television bringing the Gospel of Jesus Christ
-    to homes, communities and nations.
-  </p>
-
-  <div class="actions">
-
-    <a class="btn primary" href="#live">
-      🔴 WATCH LIVE
-    </a>
-
-    <a class="btn light" href="#programs">
-      VIEW PROGRAMS
-    </a>
-
-  </div>
-
-</div>
-
-<div class="hero-programs">
-
-  <div class="hero-program">
-    <img src="assets/mke-wa-thamani.jpg" alt="Mke wa Thamani">
-    <strong>Mke wa Thamani</strong>
-    <small>Monday • 8:00–8:30 PM</small>
-  </div>
-
-  <div class="hero-program">
-    <img src="assets/safari-ya-neema.png" alt="Safari ya Neema">
-    <strong>Safari ya Neema</strong>
-    <small>Tuesday • 8:00–8:30 PM</small>
-  </div>
-
-  <div class="hero-program">
-    <img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana">
-    <strong>Wema wa Bwana</strong>
-    <small>Wednesday • 8:00–8:30 PM</small>
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<section id="live" class="section live">
-
-  <div class="container">
-
-```
-<div class="section-head">
-
-  <div>
-    <span class="kicker">NEEMA TV</span>
-    <h2>Watch NEEMA TV</h2>
-  </div>
-
-  <span class="live-badge">
-    <i></i> ON AIR
-  </span>
-
-</div>
-
-<div class="live-grid">
-
-  <div class="player">
-
-    <div class="player-top">
-
-      <span class="live-stream-label">
-        <span class="live-stream-dot"></span>
-        NEEMA TV • LIVE
-      </span>
-
-      <span>● ON AIR</span>
-
+    <div class="welcome">
+      Welcome to
     </div>
 
-    <div class="player-video-wrap">
-
-      <video
-        id="neemaLive"
-        class="neema-live-video"
-        controls
-        autoplay
-        muted
-        playsinline
-        preload="auto"
-      ></video>
-
+    <div class="neema">
+      NEEMA TV
     </div>
 
-    <p id="liveStatus" class="live-status">
-      Connecting to NEEMA TV Live...
+    <div class="garden">
+      THE GARDEN OF SUFFICIENT GRACE
+    </div>
+
+    <div class="motto">
+      AWAKEN • INSPIRE • LEAD
+    </div>
+
+    <p class="hero-description">
+      Bringing Hope • Sharing the Word • Transforming Lives.
+      Christ-centered television bringing the Gospel of Jesus Christ
+      to homes, communities and nations.
     </p>
 
-  </div>
+    <div class="hero-buttons">
 
-  <div class="live-info">
+      <a href="#live" class="btn btn-live">
+        🔴 WATCH LIVE
+      </a>
 
-    <img
-      src="assets/wema-wa-bwana.jpg"
-      alt="NEEMA TV"
-    >
+      <a href="https://wa.me/254706107773?text=Shalom%20NEEMA%20TV!%20🙏%20Welcome%20me%20and%20help%20me%20with%20your%20ministry%20programmes.%20How%20may%20you%20serve%20me%20today%3F"
+         target="_blank"
+         class="btn btn-green">
+        💬 WHATSAPP
+      </a>
 
-    <div>
-
-      <span class="mini">
-        NEEMA TV LIVE
-      </span>
-
-      <h3>NEEMA TV</h3>
-
-      <p>
-        The Garden of Sufficient Grace
-      </p>
-
-      <a href="#programs">
-        View program schedule →
+      <a href="sms:+254706107773?body=Shalom%20NEEMA%20TV.%20I%20would%20like%20to%20request%20prayer.%20Please%20pray%20with%20me.%20God%20bless%20you."
+         class="btn btn-gold">
+        🙏 REQUEST PRAYER / SMS
       </a>
 
     </div>
 
   </div>
 
-</div>
-```
-
-  </div>
-
 </section>
 
-<section id="programs" class="section programs">
+
+<!-- =========================
+     LIVE
+========================== -->
+
+<section class="live-section" id="live">
 
   <div class="container">
 
-```
-<div class="section-head center">
+    <div class="section-title">
 
-  <div>
+      <h2>🔴 NEEMA TV LIVE</h2>
 
-    <span class="kicker">
-      PROGRAM SCHEDULE
-    </span>
+      <p>
+        Watch NEEMA TV and be encouraged in the Word of God.
+      </p>
 
-    <h2>
-      MAIN PROGRAMS
-    </h2>
-
-    <p>
-      Monday to Friday • 8:00–8:30 PM
-    </p>
-
-  </div>
-
-</div>
-
-<div class="cards">
-
-  <article class="program-card">
-    <img src="assets/mke-wa-thamani.jpg" alt="Mke wa Thamani">
-    <div>
-      <span class="day monday">MONDAY</span>
-      <h3>Mke wa Thamani</h3>
-      <p>8:00–8:30 PM</p>
-      <strong>By Ann Kamau</strong>
     </div>
-  </article>
 
-  <article class="program-card">
-    <img src="assets/safari-ya-neema.png" alt="Safari ya Neema">
-    <div>
-      <span class="day tuesday">TUESDAY</span>
-      <h3>Safari ya Neema</h3>
-      <p>8:00–8:30 PM</p>
-      <strong>Host: Recorbert Chepkwony</strong>
+    <div class="live-box">
+
+      <div class="live-header">
+        <span class="live-dot"></span>
+        LIVE NOW
+      </div>
+
+      <div class="live-screen">
+
+        <div>
+
+          <h3>NEEMA TV</h3>
+
+          <p>
+            The Garden of Sufficient Grace
+          </p>
+
+          <a href="https://win-qvh0gb4nlgr.tail9f5d71.ts.net/hls/neematv.m3u8"
+             target="_blank"
+             class="btn btn-live">
+            🔴 OPEN LIVE STREAM
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
-  </article>
-
-  <article class="program-card">
-    <img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana">
-    <div>
-      <span class="day wednesday">WEDNESDAY</span>
-      <h3>Wema wa Bwana</h3>
-      <p>8:00–8:30 PM</p>
-      <strong>By Pst Joel Kamau</strong>
-    </div>
-  </article>
-
-  <article class="program-card">
-    <img src="assets/sauti-ya-imani.png" alt="Sauti ya Imani">
-    <div>
-      <span class="day thursday">THURSDAY</span>
-      <h3>Sauti ya Imani</h3>
-      <p>8:00–8:30 PM</p>
-      <strong>By Bshp Francis Muya</strong>
-    </div>
-  </article>
-
-  <article class="program-card">
-    <img src="assets/nuru-ya-wokovu.png" alt="Nuru ya Wokovu">
-    <div>
-      <span class="day friday">FRIDAY</span>
-      <h3>Nuru ya Wokovu</h3>
-      <p>8:00–8:30 PM</p>
-      <strong>By Mrs Phylis Muya</strong>
-    </div>
-  </article>
-
-</div>
-```
 
   </div>
 
 </section>
 
-<section id="watch" class="section watch">
 
-  <div class="container watch-inner">
+<!-- =========================
+     PROGRAMMES
+========================== -->
 
-```
-<div>
+<section class="programmes" id="programmes">
 
-  <span class="kicker">
-    WATCH AGAIN
-  </span>
+  <div class="container">
 
-  <h2>
-    Keep growing in grace.
-  </h2>
+    <div class="section-title">
 
-  <p>
-    Watch NEEMA TV programs and teaching on YouTube.
-  </p>
+      <h2>Our Programmes</h2>
 
-</div>
+      <p>
+        Click a programme to watch and be blessed by the Word.
+      </p>
 
-<a
-  class="btn primary"
-  href="https://www.youtube.com/@NEEMATV-l7f"
-  target="_blank"
-  rel="noopener"
->
-  OPEN YOUTUBE CHANNEL →
-</a>
-```
+    </div>
+
+
+    <div class="program-grid">
+
+
+      <!-- MONDAY -->
+
+      <a href="https://www.youtube.com/watch?v=r8tGaQ2oD1Y&t=698s"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="program-card">
+
+        <div class="day">
+          Monday • 8:00 – 8:30 PM
+        </div>
+
+        <h3>
+          Mke wa Thamani
+        </h3>
+
+        <div class="presenter">
+          Ann Kamau
+        </div>
+
+        <span class="program-button">
+          ▶ WATCH PROGRAMME
+        </span>
+
+      </a>
+
+
+      <!-- TUESDAY -->
+
+      <a href="https://youtu.be/IzjcsplvG8M"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="program-card">
+
+        <div class="day">
+          Tuesday • 8:00 – 8:30 PM
+        </div>
+
+        <h3>
+          Safari ya Neema
+        </h3>
+
+        <div class="presenter">
+          Recorbert Chepkwony
+        </div>
+
+        <span class="program-button">
+          ▶ WATCH PROGRAMME
+        </span>
+
+      </a>
+
+
+      <!-- WEDNESDAY -->
+
+      <a href="https://youtu.be/9STvK9FpL88"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="program-card">
+
+        <div class="day">
+          Wednesday • 8:00 – 8:30 PM
+        </div>
+
+        <h3>
+          Wema wa Bwana
+        </h3>
+
+        <div class="presenter">
+          Pst Joel Kamau
+        </div>
+
+        <span class="program-button">
+          ▶ WATCH PROGRAMME
+        </span>
+
+      </a>
+
+
+      <!-- THURSDAY -->
+
+      <a href="https://youtu.be/0zOmTGLBhNM"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="program-card">
+
+        <div class="day">
+          Thursday • 8:00 – 8:30 PM
+        </div>
+
+        <h3>
+          Sauti ya Imani
+        </h3>
+
+        <div class="presenter">
+          Bshp Francis Muya
+        </div>
+
+        <span class="program-button">
+          ▶ WATCH PROGRAMME
+        </span>
+
+      </a>
+
+
+      <!-- FRIDAY -->
+
+      <a href="https://youtu.be/xkam1iLwQO4"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="program-card">
+
+        <div class="day">
+          Friday • 8:00 – 8:30 PM
+        </div>
+
+        <h3>
+          Nuru ya Wokovu
+        </h3>
+
+        <div class="presenter">
+          Mrs Phylis Muya
+        </div>
+
+        <span class="program-button">
+          ▶ WATCH PROGRAMME
+        </span>
+
+      </a>
+
+
+    </div>
 
   </div>
 
 </section>
 
-<section id="about" class="section about">
 
-  <div class="container about-grid">
+<!-- =========================
+     EVENT
+========================== -->
 
-```
-<div>
+<section class="event-section" id="events">
 
-  <span class="kicker">
-    ABOUT NEEMA TV
-  </span>
+  <div class="container">
 
-  <h2>
-    The Garden of Sufficient Grace
-  </h2>
+    <div class="event-card">
 
-  <p>
-    By the grace of God, Neema TV exists to awaken a deep hunger
-    for God, inspire people to live beyond ordinary life through
-    faith, and lead souls to salvation through the transforming
-    Gospel of Jesus Christ.
-  </p>
+      <div class="coming">
+        ✨ COMING EVENT ✨
+      </div>
 
-  <p>
-    Our vision is to reach the unreached with the Gospel of Jesus
-    Christ in villages, cities and nations.
-  </p>
+      <h2>KESHA</h2>
 
-</div>
+      <div class="event-date">
+        9 OCTOBER 2026
+      </div>
 
-<div class="values">
+      <p class="event-text">
+        Join us for a powerful night of prayer, worship,
+        fellowship and the Word of God as we seek the Lord
+        together and trust Him for His sufficient grace.
+      </p>
 
-  <div>
-    <b>01</b>
-    <h3>AWAKEN</h3>
-    <p>Awaken hunger for God.</p>
-  </div>
+      <p class="event-text">
+        <strong>
+          “My grace is sufficient for thee.”
+        </strong>
+        <br>
+        — 2 Corinthians 12:9
+      </p>
 
-  <div>
-    <b>02</b>
-    <h3>INSPIRE</h3>
-    <p>Inspire faith-filled living.</p>
-  </div>
+      <a href="#contact" class="btn btn-gold">
+        📅 EVENT DETAILS
+      </a>
 
-  <div>
-    <b>03</b>
-    <h3>LEAD</h3>
-    <p>Lead people to Christ.</p>
-  </div>
-
-</div>
-```
+    </div>
 
   </div>
 
 </section>
 
-<section id="contact" class="section contact">
 
-  <div class="container contact-box">
+<!-- =========================
+     CONTACT
+========================== -->
 
-```
-<div>
+<section class="contact" id="contact">
 
-  <span class="kicker">
-    CONTACT NEEMA TV
-  </span>
+  <div class="container">
 
-  <h2>
-    Stay connected.
-  </h2>
+    <div class="section-title">
 
-  <p>
-    Reach us for programs, ministry and broadcast information.
-  </p>
+      <h2>Connect With NEEMA TV</h2>
 
-</div>
+      <p>
+        We would love to hear from you and pray with you.
+      </p>
 
-<div class="contact-details">
+    </div>
 
-  <a href="tel:+254706107773">
-    <span>PHONE</span>
-    <strong>+254706107773</strong>
-  </a>
 
-  <a
-    href="https://wa.me/254706107773"
-    target="_blank"
-    rel="noopener"
-  >
-    <span>WHATSAPP</span>
-    <strong>+254706107773</strong>
-  </a>
+    <div class="contact-grid">
 
-  <a href="mailto:neematv001@gmail.com">
-    <span>EMAIL</span>
-    <strong>neematv001@gmail.com</strong>
-  </a>
 
-</div>
-```
+      <!-- WHATSAPP -->
+
+      <a href="https://wa.me/254706107773?text=Shalom%20NEEMA%20TV!%20🙏%20How%20may%20you%20serve%20me%20today%3F"
+         target="_blank"
+         class="contact-card">
+
+        <div class="contact-icon">
+          💬
+        </div>
+
+        <h3>WhatsApp</h3>
+
+        <p>
+          Chat with NEEMA TV
+        </p>
+
+      </a>
+
+
+      <!-- SMS -->
+
+      <a href="sms:+254706107773?body=Shalom%20NEEMA%20TV.%20I%20would%20like%20to%20request%20prayer.%20Please%20pray%20with%20me.%20God%20bless%20you."
+         class="contact-card">
+
+        <div class="contact-icon">
+          📱
+        </div>
+
+        <h3>SMS Prayer</h3>
+
+        <p>
+          Send us your prayer request
+        </p>
+
+      </a>
+
+
+      <!-- EMAIL -->
+
+      <a href="mailto:neematv001@gmail.com"
+         class="contact-card">
+
+        <div class="contact-icon">
+          ✉️
+        </div>
+
+        <h3>Email</h3>
+
+        <p>
+          neematv001@gmail.com
+        </p>
+
+      </a>
+
+
+      <!-- PHONE -->
+
+      <a href="tel:+254706107773"
+         class="contact-card">
+
+        <div class="contact-icon">
+          📞
+        </div>
+
+        <h3>Call NEEMA TV</h3>
+
+        <p>
+          +254 706 107 773
+        </p>
+
+      </a>
+
+
+    </div>
 
   </div>
 
 </section>
 
-</main>
+
+<!-- =========================
+     SOCIAL MEDIA
+========================== -->
+
+<section class="social-section" id="social">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Follow NEEMA TV</h2>
+
+      <p>
+        Stay connected with us across social media.
+      </p>
+
+    </div>
+
+
+    <div class="socials">
+
+
+      <!-- YOUTUBE -->
+
+      <a href="https://www.youtube.com/@NEEMATV-l7f"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-btn">
+
+        ▶ YouTube
+
+      </a>
+
+
+      <!-- FACEBOOK -->
+
+      <a href="https://web.facebook.com/share/v/1CJHojxMLZ/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-btn">
+
+        f Facebook
+
+      </a>
+
+
+      <!-- TIKTOK -->
+
+      <a href="https://www.tiktok.com/@neema.tv3"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-btn">
+
+        ♪ TikTok
+
+      </a>
+
+
+      <!-- X -->
+
+      <a href="https://x.com/NEEMATVnkr"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-btn">
+
+        𝕏 X / Twitter
+
+      </a>
+
+
+      <!-- INSTAGRAM PLACEHOLDER -->
+
+      <a href="#"
+         onclick="instagramNotice(event)"
+         class="social-btn">
+
+        ◎ Instagram
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
 
 <footer>
 
-  <div class="container footer">
-
-```
-<img
-  src="assets/neema-logo.png"
-  alt="NEEMA TV"
->
-
-<div>
   <strong>NEEMA TV</strong>
-  <span>The Garden of Sufficient Grace</span>
-</div>
 
-<div>
-  AWAKEN • INSPIRE • LEAD
-</div>
+  <p>
+    THE GARDEN OF SUFFICIENT GRACE
+  </p>
 
-<div>
-  © 2026 NEEMA TV
-</div>
-```
+  <p>
+    AWAKEN • INSPIRE • LEAD
+  </p>
 
-  </div>
+  <p style="margin-top:15px;">
+    © 2026 NEEMA TV. All rights reserved.
+  </p>
 
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
 
 <script>
-const video = document.getElementById("neemaLive");
-const status = document.getElementById("liveStatus");
 
-const NEEMA_HLS =
-  "https://win-qvh0gb4nlgr.tail9f5d71.ts.net/hls/neematv.m3u8";
+  function instagramNotice(event) {
 
-function setStatus(message, error = false) {
-  status.textContent = message;
-  status.classList.toggle("live-error", error);
-}
+    event.preventDefault();
 
-if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    alert(
+      "NEEMA TV Instagram link will be added soon. " +
+      "Please check back for our official Instagram page."
+    );
 
-  video.src = NEEMA_HLS;
+  }
 
-  video.addEventListener("loadedmetadata", function () {
-    setStatus("● NEEMA TV IS LIVE");
-    video.play().catch(function () {});
-  });
-
-  video.addEventListener("playing", function () {
-    setStatus("● NEEMA TV IS LIVE");
-  });
-
-  video.addEventListener("waiting", function () {
-    setStatus("Buffering NEEMA TV...");
-  });
-
-  video.addEventListener("error", function () {
-    setStatus("Reconnecting to NEEMA TV...", true);
-  });
-
-} else if (Hls.isSupported()) {
-
-  const hls = new Hls({
-    liveSyncDurationCount: 3,
-    enableWorker: true,
-    lowLatencyMode: false,
-    backBufferLength: 30
-  });
-
-  hls.loadSource(NEEMA_HLS);
-  hls.attachMedia(video);
-
-  hls.on(Hls.Events.MANIFEST_PARSED, function () {
-    setStatus("● NEEMA TV IS LIVE");
-    video.play().catch(function () {});
-  });
-
-  hls.on(Hls.Events.ERROR, function (event, data) {
-
-    console.log("NEEMA TV HLS error:", data);
-
-    if (!data.fatal) {
-      return;
-    }
-
-    setStatus("Reconnecting to NEEMA TV...", true);
-
-    if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-
-      setTimeout(function () {
-        hls.startLoad();
-      }, 3000);
-
-    } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
-
-      setTimeout(function () {
-        hls.recoverMediaError();
-      }, 1000);
-
-    } else {
-
-      setTimeout(function () {
-        hls.destroy();
-        location.reload();
-      }, 5000);
-
-    }
-
-  });
-
-  video.addEventListener("playing", function () {
-    setStatus("● NEEMA TV IS LIVE");
-  });
-
-  video.addEventListener("waiting", function () {
-    setStatus("Buffering NEEMA TV...");
-  });
-
-} else {
-
-  setStatus(
-    "Your browser does not support live HLS playback.",
-    true
-  );
-
-}
 </script>
 
 </body>
