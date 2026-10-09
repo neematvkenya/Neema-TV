@@ -1,11 +1,13 @@
-
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="NEEMA TV - The Garden of Sufficient Grace. Bringing Hope, Sharing the Word, Transforming Lives.">
+  <meta name="theme-color" content="#021f10">
+
   <title>NEEMA TV | The Garden of Sufficient Grace</title>
 
   <style>
@@ -33,7 +35,10 @@
       display: block;
     }
 
-    /* HEADER */
+    button {
+      font: inherit;
+    }
+
     header {
       position: sticky;
       top: 0;
@@ -67,17 +72,16 @@
     }
 
     nav a {
-      color: #ffffff;
+      color: #fff;
       font-weight: bold;
       font-size: 14px;
-      transition: 0.3s;
+      transition: color 0.3s;
     }
 
     nav a:hover {
       color: #ffb000;
     }
 
-    /* HERO */
     .hero {
       min-height: 88vh;
       display: flex;
@@ -96,7 +100,7 @@
     }
 
     .welcome {
-      color: #ffffff;
+      color: #fff;
       font-size: clamp(20px, 3vw, 30px);
       font-weight: 600;
       margin-bottom: 5px;
@@ -121,7 +125,7 @@
     }
 
     .motto {
-      color: #ffffff;
+      color: #fff;
       font-size: clamp(16px, 2.5vw, 25px);
       font-weight: bold;
       letter-spacing: 2px;
@@ -170,9 +174,9 @@
       color: white;
     }
 
-    /* GENERAL */
     section {
       padding: 75px 20px;
+      scroll-margin-top: 90px;
     }
 
     .container {
@@ -194,7 +198,8 @@
       margin: 0 auto 40px;
     }
 
-    /* LIVE */
+    /* LIVE PLAYER */
+
     #live {
       background: #03170d;
     }
@@ -210,10 +215,25 @@
     }
 
     .live-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
       text-align: center;
       color: #ffb000;
       margin-bottom: 18px;
       font-size: 25px;
+      font-weight: bold;
+    }
+
+    .live-indicator {
+      width: 11px;
+      height: 11px;
+      display: inline-block;
+      background: #e53935;
+      border-radius: 50%;
+      animation: livePulse 1.3s infinite;
     }
 
     .video-wrapper {
@@ -225,21 +245,97 @@
       overflow: hidden;
     }
 
-    video {
+    #liveVideo {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
       background: #000;
     }
 
+    .player-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.88);
+      text-align: center;
+    }
+
+    .player-overlay.visible {
+      display: flex;
+    }
+
+    .player-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #254c36;
+      border-top-color: #079447;
+      border-radius: 50%;
+      animation: playerSpin 0.8s linear infinite;
+    }
+
+    .player-message {
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      max-width: 400px;
+    }
+
+    .retry-button {
+      padding: 11px 22px;
+      border: none;
+      border-radius: 25px;
+      background: #079447;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .retry-button:hover {
+      background: #045d2d;
+    }
+
+    .retry-button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid #ffb000;
+      outline-offset: 3px;
+    }
+
     .live-status {
       text-align: center;
       margin-top: 15px;
-      color: #ff3333;
+      color: #b7e4c7;
+      font-size: 14px;
       font-weight: bold;
     }
 
+    .live-status.is-live {
+      color: #ff3333;
+    }
+
+    .live-note {
+      margin-top: 8px;
+      text-align: center;
+      color: #b8c8be;
+      font-size: 12px;
+    }
+
+    @keyframes playerSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes livePulse {
+      50% { opacity: 0.35; }
+    }
+
     /* PROGRAMMES */
+
     .programmes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -278,7 +374,7 @@
     }
 
     .programme-info h3 {
-      color: #ffffff;
+      color: #fff;
       font-size: 21px;
       margin-bottom: 8px;
     }
@@ -292,14 +388,19 @@
     .programme-link {
       display: inline-block;
       background: #079447;
-      color: white;
+      color: #fff;
       padding: 9px 16px;
       border-radius: 20px;
       font-size: 13px;
       font-weight: bold;
     }
 
+    .programme-link:hover {
+      background: #045d2d;
+    }
+
     /* EVENT */
+
     .event {
       background: linear-gradient(135deg, #063d21, #021f10);
       text-align: center;
@@ -332,6 +433,7 @@
     }
 
     /* CONTACT */
+
     #contact {
       background: #03170d;
     }
@@ -363,15 +465,17 @@
     }
 
     .contact-card a {
-      color: #ffffff;
+      color: #fff;
       font-weight: bold;
+      overflow-wrap: anywhere;
     }
 
     .contact-card a:hover {
       color: #ffb000;
     }
 
-    /* SOCIAL */
+    /* SOCIAL MEDIA */
+
     .social {
       text-align: center;
       padding-top: 35px;
@@ -410,6 +514,7 @@
     }
 
     /* FOOTER */
+
     footer {
       background: #01150a;
       border-top: 1px solid rgba(7, 148, 71, 0.3);
@@ -422,7 +527,6 @@
       color: #079447;
     }
 
-    /* MOBILE */
     @media (max-width: 700px) {
       .nav-container {
         flex-direction: column;
@@ -453,9 +557,27 @@
         width: 100%;
         max-width: 330px;
       }
+
+      .live-box {
+        padding: 12px;
+      }
+
+      .live-title {
+        font-size: 21px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
-
 </head>
 
 <body>
@@ -464,11 +586,11 @@
 
   <header>
     <div class="nav-container">
-      <a href="#home">
+      <a href="#home" aria-label="NEEMA TV home">
         <img src="assets/neema-logo.png" alt="NEEMA TV Logo" class="logo">
       </a>
 
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="#home">HOME</a>
         <a href="#live">LIVE</a>
         <a href="#programmes">PROGRAMMES</a>
@@ -507,10 +629,6 @@
           🔴 WATCH LIVE
         </a>
 
-        <!-- WHATSAPP
-             No pre-filled message.
-             Client can type their own message freely.
-        -->
         <a
           href="https://wa.me/254706107773"
           target="_blank"
@@ -520,14 +638,7 @@
           💬 WHATSAPP
         </a>
 
-        <!-- SMS
-             No pre-filled message.
-             Client can type their own message freely.
-        -->
-        <a
-          href="sms:+254706107773"
-          class="btn btn-sms"
-        >
+        <a href="sms:+254706107773" class="btn btn-sms">
           ✉️ REQUEST PRAYER / SMS
         </a>
 
@@ -535,7 +646,7 @@
     </div>
   </section>
 
-  <!-- LIVE -->
+  <!-- LIVE TV WITH AUTOMATIC RECONNECTION -->
 
   <section id="live">
     <div class="container">
@@ -549,22 +660,52 @@
       <div class="live-box">
 
         <div class="live-title">
-          🔴 NEEMA TV LIVE
+          <span class="live-indicator" aria-hidden="true"></span>
+          <span>NEEMA TV LIVE</span>
         </div>
 
         <div class="video-wrapper">
+
           <video
             id="liveVideo"
             controls
             autoplay
-            playsinline
             muted
+            playsinline
+            preload="auto"
+            aria-label="NEEMA TV live broadcast"
           ></video>
+
+          <div
+            id="playerOverlay"
+            class="player-overlay visible"
+            role="status"
+            aria-live="polite"
+          >
+            <div id="playerSpinner" class="player-spinner"></div>
+
+            <p id="playerMessage" class="player-message">
+              Connecting to NEEMA TV...
+            </p>
+
+            <button
+              id="retryButton"
+              class="retry-button"
+              type="button"
+            >
+              RETRY LIVE
+            </button>
+          </div>
+
         </div>
 
-        <div class="live-status">
-          🔴 LIVE
+        <div id="liveStatus" class="live-status" aria-live="polite">
+          Connecting to live stream...
         </div>
+
+        <p class="live-note">
+          If the connection is interrupted, NEEMA TV will attempt to reconnect automatically.
+        </p>
 
       </div>
     </div>
@@ -573,7 +714,6 @@
   <!-- PROGRAMMES -->
 
   <section id="programmes">
-
     <div class="container">
 
       <h2 class="section-title">OUR PROGRAMMES</h2>
@@ -584,57 +724,40 @@
 
       <div class="programmes-grid">
 
-        <!-- MONDAY -->
         <div class="programme-card">
-
           <img
             src="assets/mke-wa-thamani.jpg"
             alt="Mke wa Thamani"
+            loading="lazy"
           >
 
           <div class="programme-info">
-
-            <div class="programme-day">
-              MONDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">MONDAY • 8:00–8:30 PM</div>
             <h3>Mke wa Thamani</h3>
-
-            <p>
-              With Ann Kamau
-            </p>
+            <p>With Ann Kamau</p>
 
             <a
-              href="https://www.youtube.com/watch?v=r8tGaQ2oD1Y&t=698s"
+              href="https://www.youtube.com/watch?v=r8tGaQ2oD1Y&amp;t=698s"
               target="_blank"
               rel="noopener noreferrer"
               class="programme-link"
             >
               WATCH PROGRAMME
             </a>
-
           </div>
         </div>
 
-        <!-- TUESDAY -->
         <div class="programme-card">
-
           <img
             src="assets/safari-ya-neema.png"
             alt="Safari ya Neema"
+            loading="lazy"
           >
 
           <div class="programme-info">
-
-            <div class="programme-day">
-              TUESDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">TUESDAY • 8:00–8:30 PM</div>
             <h3>Safari ya Neema</h3>
-
-            <p>
-              With Recorbert Chepkwony
-            </p>
+            <p>With Recorbert Chepkwony</p>
 
             <a
               href="https://youtu.be/IzjcsplvG8M"
@@ -644,29 +767,20 @@
             >
               WATCH PROGRAMME
             </a>
-
           </div>
         </div>
 
-        <!-- WEDNESDAY -->
         <div class="programme-card">
-
           <img
             src="assets/wema-wa-bwana.jpg"
             alt="Wema wa Bwana"
+            loading="lazy"
           >
 
           <div class="programme-info">
-
-            <div class="programme-day">
-              WEDNESDAY • 8:30–:9:00 PM
-            </div>
-
+            <div class="programme-day">WEDNESDAY • 8:30–9:00 PM</div>
             <h3>Wema wa Bwana</h3>
-
-            <p>
-              With Pst Joel Kamau
-            </p>
+            <p>With Pst Joel Kamau</p>
 
             <a
               href="https://youtu.be/9STvK9FpL88"
@@ -676,29 +790,20 @@
             >
               WATCH PROGRAMME
             </a>
-
           </div>
         </div>
 
-        <!-- THURSDAY -->
         <div class="programme-card">
-
           <img
             src="assets/sauti-ya-imani.png"
             alt="Sauti ya Imani"
+            loading="lazy"
           >
 
           <div class="programme-info">
-
-            <div class="programme-day">
-              THURSDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">THURSDAY • 8:00–8:30 PM</div>
             <h3>Sauti ya Imani</h3>
-
-            <p>
-              With Bshp Francis Muya
-            </p>
+            <p>With Bshp Francis Muya</p>
 
             <a
               href="https://youtu.be/0zOmTGLBhNM"
@@ -708,29 +813,20 @@
             >
               WATCH PROGRAMME
             </a>
-
           </div>
         </div>
 
-        <!-- FRIDAY -->
         <div class="programme-card">
-
           <img
             src="assets/nuru-ya-wokovu.png"
             alt="Nuru ya Wokovu"
+            loading="lazy"
           >
 
           <div class="programme-info">
-
-            <div class="programme-day">
-              FRIDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">FRIDAY • 8:00–8:30 PM</div>
             <h3>Nuru ya Wokovu</h3>
-
-            <p>
-              With Mrs Phylis Muya
-            </p>
+            <p>With Mrs Phylis Muya</p>
 
             <a
               href="https://youtu.be/xkam1iLwQO4"
@@ -740,28 +836,22 @@
             >
               WATCH PROGRAMME
             </a>
-
           </div>
         </div>
 
       </div>
     </div>
-
   </section>
 
   <!-- EVENT -->
 
   <section class="event" id="event">
-
     <div class="container">
-
       <div class="event-card">
 
         <h3>KESHA</h3>
 
-        <div class="event-date">
-          9 OCTOBER 2026
-        </div>
+        <div class="event-date">9 OCTOBER 2026</div>
 
         <p class="event-scripture">
           “My grace is sufficient for you, for my power is made perfect in weakness.”
@@ -770,15 +860,12 @@
         </p>
 
       </div>
-
     </div>
-
   </section>
 
   <!-- CONTACT -->
 
   <section id="contact">
-
     <div class="container">
 
       <h2 class="section-title">CONTACT US</h2>
@@ -789,14 +876,9 @@
 
       <div class="contact-grid">
 
-        <!-- WHATSAPP -->
         <div class="contact-card">
-
           <h3>WhatsApp</h3>
-
-          <p>
-            Connect with NEEMA TV on WhatsApp
-          </p>
+          <p>Connect with NEEMA TV on WhatsApp</p>
 
           <a
             href="https://wa.me/254706107773"
@@ -805,59 +887,37 @@
           >
             +254 706 107 773
           </a>
-
         </div>
 
-        <!-- SMS -->
         <div class="contact-card">
-
           <h3>SMS</h3>
+          <p>Contact NEEMA TV by SMS</p>
 
-          <p>
-            Contact NEEMA TV by SMS
-          </p>
-
-          <a
-            href="sms:+254706107773"
-          >
+          <a href="sms:+254706107773">
             +254 706 107 773
           </a>
-
         </div>
 
-        <!-- EMAIL -->
         <div class="contact-card">
-
           <h3>Email</h3>
-
-          <p>
-            Email NEEMA TV
-          </p>
+          <p>Email NEEMA TV</p>
 
           <a href="mailto:neematv001@gmail.com">
             neematv001@gmail.com
           </a>
-
         </div>
 
-        <!-- PHONE -->
         <div class="contact-card">
-
           <h3>Phone</h3>
-
-          <p>
-            Call NEEMA TV
-          </p>
+          <p>Call NEEMA TV</p>
 
           <a href="tel:+254706107773">
             +254 706 107 773
           </a>
-
         </div>
 
       </div>
 
-      <!-- SOCIAL MEDIA -->
       <div class="social">
 
         <h3>CONNECT WITH NEEMA TV</h3>
@@ -896,32 +956,24 @@
             𝕏 X
           </a>
 
-          <a
-            href="#"
-            onclick="alert('NEEMA TV Instagram coming soon.'); return false;"
-          >
+          <a href="mailto:neematv001@gmail.com?subject=NEEMA%20TV%20Instagram">
             ◎ Instagram
           </a>
 
         </div>
-
       </div>
 
     </div>
-
   </section>
 
   <!-- FOOTER -->
 
   <footer>
-
     <p>
       <strong>NEEMA TV</strong> — The Garden of Sufficient Grace
     </p>
 
-    <p>
-      AWAKEN • INSPIRE • LEAD
-    </p>
+    <p>AWAKEN • INSPIRE • LEAD</p>
 
     <p>
       Bringing Hope • Sharing the Word • Transforming Lives
@@ -930,72 +982,366 @@
     <p style="margin-top: 10px;">
       © 2026 NEEMA TV. All Rights Reserved.
     </p>
-
   </footer>
 
-  <!-- HLS PLAYER -->
+  <!-- HLS.JS -->
 
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.13/dist/hls.min.js"></script>
+
+  <!-- AUTOMATIC LIVE STREAM RECOVERY -->
 
   <script>
-    const video = document.getElementById("liveVideo");
+  (() => {
+    "use strict";
 
-    // NEEMA TV HLS STREAM
-    const streamUrl =
+    const STREAM_URL =
       "https://neematv.tail9f5d71.ts.net/hls/neematv.m3u8";
 
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    const video = document.getElementById("liveVideo");
+    const status = document.getElementById("liveStatus");
+    const overlay = document.getElementById("playerOverlay");
+    const spinner = document.getElementById("playerSpinner");
+    const message = document.getElementById("playerMessage");
+    const retryButton = document.getElementById("retryButton");
 
-      video.src = streamUrl;
-
-      video.addEventListener("loadedmetadata", function () {
-        video.play().catch(() => {});
-      });
-
-    } else if (Hls.isSupported()) {
-
-      const hls = new Hls({
-        enableWorker: true,
-        lowLatencyMode: true
-      });
-
-      hls.loadSource(streamUrl);
-      hls.attachMedia(video);
-
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
-        video.play().catch(() => {});
-      });
-
-      hls.on(Hls.Events.ERROR, function (event, data) {
-        console.log("HLS error:", data);
-
-        if (data.fatal) {
-          switch (data.type) {
-
-            case Hls.ErrorTypes.NETWORK_ERROR:
-              console.log("NEEMA TV: Network error. Retrying...");
-              hls.startLoad();
-              break;
-
-            case Hls.ErrorTypes.MEDIA_ERROR:
-              console.log("NEEMA TV: Media error. Recovering...");
-              hls.recoverMediaError();
-              break;
-
-            default:
-              console.log("NEEMA TV: Fatal HLS error.");
-              hls.destroy();
-              break;
-          }
-        }
-      });
-
-    } else {
-
-      console.log("HLS is not supported by this browser.");
-
+    if (!video || !status || !overlay || !spinner ||
+        !message || !retryButton) {
+      return;
     }
+
+    let hls = null;
+    let retryTimer = null;
+    let stallTimer = null;
+    let retryCount = 0;
+    let generation = 0;
+    let destroyed = false;
+    let restarting = false;
+    let recoveringMedia = false;
+
+    const MAX_RETRY_DELAY = 15000;
+    const MAX_RETRY_COUNT = 4;
+
+    function setStatus(text, isLive = false) {
+      status.textContent = text;
+      status.classList.toggle("is-live", isLive);
+    }
+
+    function showOverlay(text, showSpinner = true) {
+      message.textContent = text;
+      spinner.style.display = showSpinner ? "block" : "none";
+      overlay.classList.add("visible");
+    }
+
+    function hideOverlay() {
+      overlay.classList.remove("visible");
+    }
+
+    function clearRetryTimer() {
+      if (retryTimer !== null) {
+        clearTimeout(retryTimer);
+        retryTimer = null;
+      }
+    }
+
+    function clearStallTimer() {
+      if (stallTimer !== null) {
+        clearTimeout(stallTimer);
+        stallTimer = null;
+      }
+    }
+
+    function disposePlayer() {
+      if (hls) {
+        hls.destroy();
+        hls = null;
+      }
+    }
+
+    function retryDelay() {
+      return Math.min(
+        1000 * Math.pow(2, Math.min(retryCount, MAX_RETRY_COUNT)),
+        MAX_RETRY_DELAY
+      );
+    }
+
+    function scheduleReconnect(reason, immediate = false) {
+      if (destroyed || restarting) return;
+
+      if (!navigator.onLine) {
+        clearRetryTimer();
+        setStatus("Waiting for internet...");
+        showOverlay("Your internet connection is unavailable. Waiting to reconnect...");
+        return;
+      }
+
+      if (retryTimer !== null) return;
+
+      restarting = true;
+      setStatus("Reconnecting...");
+      showOverlay(reason || "Restoring the live connection...");
+
+      const delay = immediate ? 0 : retryDelay();
+      retryCount = Math.min(retryCount + 1, MAX_RETRY_COUNT);
+
+      retryTimer = setTimeout(() => {
+        retryTimer = null;
+        restarting = false;
+        startStream();
+      }, delay);
+    }
+
+    function startStream() {
+      if (destroyed) return;
+
+      if (!navigator.onLine) {
+        setStatus("Offline");
+        showOverlay("Waiting for your internet connection...");
+        return;
+      }
+
+      clearRetryTimer();
+      clearStallTimer();
+
+      restarting = false;
+      recoveringMedia = false;
+
+      const currentGeneration = ++generation;
+
+      disposePlayer();
+
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+
+      setStatus("Connecting...");
+      showOverlay("Connecting to NEEMA TV live...");
+
+      if (window.Hls && window.Hls.isSupported()) {
+        const player = new window.Hls({
+          enableWorker: true,
+          lowLatencyMode: false,
+          liveSyncDurationCount: 4,
+          liveMaxLatencyDurationCount: 10,
+          maxBufferLength: 20,
+          manifestLoadingTimeOut: 15000,
+          manifestLoadingMaxRetry: 2,
+          levelLoadingTimeOut: 15000,
+          fragLoadingTimeOut: 20000
+        });
+
+        hls = player;
+
+        player.on(window.Hls.Events.MEDIA_ATTACHED, () => {
+          if (currentGeneration !== generation) return;
+          player.loadSource(STREAM_URL);
+        });
+
+        player.on(window.Hls.Events.MANIFEST_PARSED, () => {
+          if (currentGeneration !== generation) return;
+
+          video.play().catch(() => {
+            if (currentGeneration !== generation) return;
+
+            setStatus("Ready — press Play");
+            showOverlay(
+              "The stream is ready. Press Play to watch.",
+              false
+            );
+          });
+        });
+
+        player.on(window.Hls.Events.ERROR, (_event, data) => {
+          if (currentGeneration !== generation || !data.fatal) return;
+
+          if (data.type === window.Hls.ErrorTypes.NETWORK_ERROR) {
+            // Ask HLS.js to retry loading the network resource first.
+            try {
+              player.startLoad();
+            } catch (_) {
+              scheduleReconnect("Network interrupted. Reconnecting...");
+              return;
+            }
+
+            // If playback still fails, replace the player after a delay.
+            clearStallTimer();
+
+            stallTimer = setTimeout(() => {
+              if (currentGeneration === generation &&
+                  video.readyState < 3) {
+                scheduleReconnect(
+                  "The live connection is unavailable. Trying again..."
+                );
+              }
+            }, 8000);
+
+          } else if (data.type === window.Hls.ErrorTypes.MEDIA_ERROR) {
+            if (!recoveringMedia) {
+              recoveringMedia = true;
+
+              try {
+                player.recoverMediaError();
+              } catch (_) {
+                scheduleReconnect("Recovering video playback...");
+              }
+
+              setTimeout(() => {
+                if (currentGeneration === generation &&
+                    recoveringMedia &&
+                    video.readyState < 2) {
+                  scheduleReconnect(
+                    "Restarting video playback..."
+                  );
+                }
+              }, 5000);
+            } else {
+              scheduleReconnect("Restarting the live player...");
+            }
+          } else {
+            scheduleReconnect("Restarting the live player...");
+          }
+        });
+
+        player.attachMedia(video);
+
+      } else if (
+        video.canPlayType("application/vnd.apple.mpegurl")
+      ) {
+        // Native HLS playback, for example in Safari.
+        video.src = STREAM_URL;
+        video.load();
+
+        video.play().catch(() => {
+          if (currentGeneration !== generation) return;
+
+          setStatus("Ready — press Play");
+          showOverlay(
+            "Press Play to start watching NEEMA TV.",
+            false
+          );
+        });
+
+      } else {
+        setStatus("Unsupported browser");
+        showOverlay(
+          "This browser cannot play HLS. Please try an updated browser.",
+          false
+        );
+      }
+    }
+
+    video.addEventListener("playing", () => {
+      clearRetryTimer();
+      clearStallTimer();
+
+      restarting = false;
+      recoveringMedia = false;
+      retryCount = 0;
+
+      setStatus("LIVE", true);
+      hideOverlay();
+    });
+
+    video.addEventListener("waiting", () => {
+      if (destroyed || restarting) return;
+
+      setStatus("Buffering...");
+
+      clearStallTimer();
+
+      // Normal buffering can be temporary. Don't restart immediately.
+      stallTimer = setTimeout(() => {
+        if (!destroyed &&
+            !video.paused &&
+            video.readyState < 3) {
+          scheduleReconnect(
+            "The stream is buffering. Restoring the connection..."
+          );
+        }
+      }, 12000);
+    });
+
+    video.addEventListener("stalled", () => {
+      if (destroyed || restarting) return;
+
+      clearStallTimer();
+
+      stallTimer = setTimeout(() => {
+        if (!destroyed && video.readyState < 3) {
+          scheduleReconnect(
+            "The live stream has stalled. Reconnecting..."
+          );
+        }
+      }, 8000);
+    });
+
+    video.addEventListener("playing", clearStallTimer);
+
+    video.addEventListener("error", () => {
+      if (destroyed || restarting) return;
+
+      scheduleReconnect(
+        "Playback was interrupted. Reconnecting..."
+      );
+    });
+
+    video.addEventListener("ended", () => {
+      if (destroyed) return;
+
+      scheduleReconnect(
+        "The live feed stopped. Trying to reconnect..."
+      );
+    });
+
+    window.addEventListener("online", () => {
+      retryCount = 0;
+      clearRetryTimer();
+      clearStallTimer();
+      restarting = false;
+
+      startStream();
+    });
+
+    window.addEventListener("offline", () => {
+      clearRetryTimer();
+      clearStallTimer();
+
+      restarting = false;
+
+      setStatus("Offline");
+      showOverlay(
+        "Internet disconnected. Waiting for the connection to return..."
+      );
+    });
+
+    retryButton.addEventListener("click", () => {
+      retryCount = 0;
+      clearRetryTimer();
+      clearStallTimer();
+      restarting = false;
+
+      startStream();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden &&
+          navigator.onLine &&
+          video.error) {
+        retryCount = 0;
+        startStream();
+      }
+    });
+
+    window.addEventListener("pagehide", () => {
+      destroyed = true;
+      clearRetryTimer();
+      clearStallTimer();
+      disposePlayer();
+    });
+
+    startStream();
+  })();
   </script>
 
 </body>
 </html>
+```
