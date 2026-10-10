@@ -75,7 +75,7 @@
       color: #ffb000;
     }
 
-    /* BRAND SOCIAL ICONS NEAR THE ORIGINAL LOGO */
+    /* SOCIAL ICONS */
     .brand-area {
       display: flex;
       align-items: center;
@@ -123,33 +123,43 @@
       min-width: 46px;
     }
 
-    /* PRAYER & HOPE CONTACT PANEL */
-    .neema-chat-launcher {
+    /* SEPARATE PRAYER AND COMPLAINT PANELS */
+    .neema-chat-launcher,
+    .neema-complaint-launcher {
       position: fixed;
       right: 20px;
-      bottom: 20px;
       z-index: 3000;
       border: 0;
       border-radius: 999px;
-      padding: 14px 19px;
+      padding: 12px 17px;
       cursor: pointer;
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.35);
+    }
+
+    .neema-chat-launcher {
+      bottom: 18px;
       background: #25d366;
       color: #062a17;
-      font-weight: 800;
-      font-size: 15px;
-      box-shadow: 0 8px 26px rgba(0,0,0,.35);
+    }
+
+    .neema-complaint-launcher {
+      bottom: 72px;
+      background: #ffb000;
+      color: #2b2100;
     }
 
     .neema-chat {
       position: fixed;
       right: 20px;
-      bottom: 82px;
+      bottom: 130px;
       z-index: 3000;
       width: min(390px, calc(100vw - 28px));
-      max-height: calc(100vh - 115px);
+      max-height: calc(100vh - 155px);
       display: none;
       flex-direction: column;
-      overflow-y: auto;
+      overflow: auto;
       border-radius: 18px;
       background: #f7fbf8;
       color: #183326;
@@ -169,9 +179,6 @@
       padding: 14px 16px;
       background: #045d2d;
       color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 1;
     }
 
     .neema-chat-head strong {
@@ -189,7 +196,6 @@
       color: #fff;
       font-size: 26px;
       cursor: pointer;
-      padding: 0 5px;
     }
 
     .neema-contact-content {
@@ -197,12 +203,6 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-    }
-
-    .neema-contact-intro {
-      margin: 0;
-      line-height: 1.5;
-      font-size: 14px;
     }
 
     .neema-contact-group {
@@ -213,15 +213,29 @@
     }
 
     .neema-contact-group h3 {
-      margin: 0 0 6px;
+      margin: 0 0 8px;
       color: #045d2d;
-      font-size: 15px;
+      font-size: 16px;
     }
 
     .neema-contact-group p {
       margin: 0 0 10px;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.45;
+    }
+
+    .neema-message-input {
+      width: 100%;
+      min-height: 105px;
+      resize: vertical;
+      padding: 11px;
+      margin: 0 0 10px;
+      border: 1px solid #bdcec2;
+      border-radius: 9px;
+      font: inherit;
+      box-sizing: border-box;
+      color: #183326;
+      background: #fff;
     }
 
     .neema-contact-actions {
@@ -230,18 +244,19 @@
       gap: 8px;
     }
 
-    .neema-contact-actions a {
+    .neema-contact-actions button {
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      min-height: 44px;
+      min-height: 42px;
       padding: 9px 8px;
+      border: 0;
       border-radius: 9px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 12px;
-      line-height: 1.35;
+      font-size: 13px;
+      cursor: pointer;
     }
 
     .neema-action-wa {
@@ -252,36 +267,29 @@
     .neema-action-sms {
       background: #e7f0ff;
       color: #123f79;
-      border: 1px solid #c5d9f8;
-    }
-
-    .neema-contact-actions a:hover {
-      filter: brightness(.96);
-      transform: translateY(-1px);
-    }
-
-    .neema-contact-note {
-      margin: 0;
-      padding: 0 14px 14px;
-      font-size: 11px;
-      line-height: 1.45;
-      color: #617367;
+      border: 1px solid #c5d9f8 !important;
     }
 
     @media (max-width: 420px) {
-      .neema-chat-launcher {
+      .neema-chat-launcher,
+      .neema-complaint-launcher {
         right: 12px;
+        padding: 11px 14px;
+        font-size: 12px;
+      }
+
+      .neema-chat-launcher {
         bottom: 12px;
+      }
+
+      .neema-complaint-launcher {
+        bottom: 62px;
       }
 
       .neema-chat {
         right: 10px;
-        bottom: 72px;
-      }
-
-      .neema-contact-actions a {
-        font-size: 11px;
-        padding: 8px 5px;
+        bottom: 112px;
+        max-height: calc(100vh - 130px);
       }
     }
 
@@ -826,24 +834,12 @@
         </a>
 
         <div class="brand-social" aria-label="NEEMA TV social media">
-          <a href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on YouTube">
-            <img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube">
-          </a>
-          <a href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on Facebook">
-            <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook">
-          </a>
-          <a href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on TikTok">
-            <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok">
-          </a>
-          <a href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on X">
-            <img src="https://cdn.simpleicons.org/x/000000" alt="X">
-          </a>
-          <a href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" aria-label="Chat with NEEMA TV on WhatsApp">
-            <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp">
-          </a>
-          <a href="https://www.instagram.com/neema.tv/" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on Instagram">
-            <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram">
-          </a>
+          <a href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on YouTube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube"></a>
+          <a href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook"></a>
+          <a href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on TikTok"><img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok"></a>
+          <a href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on X"><img src="https://cdn.simpleicons.org/x/000000" alt="X"></a>
+          <a href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" aria-label="Chat with NEEMA TV on WhatsApp"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp"></a>
+          <a href="https://www.instagram.com/neema.tv/" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on Instagram"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"></a>
         </div>
       </div>
 
@@ -865,13 +861,9 @@
 
       <h1>NEEMA TV</h1>
 
-      <div class="garden">
-        THE GARDEN OF SUFFICIENT GRACE
-      </div>
+      <div class="garden">THE GARDEN OF SUFFICIENT GRACE</div>
 
-      <div class="motto">
-        AWAKEN • INSPIRE • LEAD
-      </div>
+      <div class="motto">AWAKEN • INSPIRE • LEAD</div>
 
       <p class="hero-description">
         Bringing Hope • Sharing the Word • Transforming Lives.
@@ -880,23 +872,16 @@
       </p>
 
       <div class="hero-buttons">
-        <a href="#live" class="btn btn-live">
-          🔴 WATCH LIVE
-        </a>
+        <a href="#live" class="btn btn-live">🔴 WATCH LIVE</a>
 
         <a
           href="https://wa.me/254706107773"
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-whatsapp"
-        >
-          💬 WHATSAPP
-        </a>
+        >💬 WHATSAPP</a>
 
-        <a
-          href="sms:+254706107773"
-          class="btn btn-sms"
-        >
+        <a href="sms:+254706107773" class="btn btn-sms">
           ✉️ REQUEST PRAYER / SMS
         </a>
       </div>
@@ -913,23 +898,13 @@
       </p>
 
       <div class="live-box">
-        <div class="live-title">
-          🔴 NEEMA TV LIVE
-        </div>
+        <div class="live-title">🔴 NEEMA TV LIVE</div>
 
         <div class="video-wrapper">
-          <video
-            id="liveVideo"
-            controls
-            autoplay
-            playsinline
-            muted
-          ></video>
+          <video id="liveVideo" controls autoplay playsinline muted></video>
         </div>
 
-        <div class="live-status">
-          🔴 LIVE
-        </div>
+        <div class="live-status">🔴 LIVE</div>
       </div>
     </div>
   </section>
@@ -950,12 +925,8 @@
           <img src="assets/mke-wa-thamani.jpg" alt="Mke wa Thamani">
 
           <div class="programme-info">
-            <div class="programme-day">
-              MONDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">MONDAY • 8:00–8:30 PM</div>
             <h3>Mke wa Thamani</h3>
-
             <p>With Ann Kamau</p>
 
             <a
@@ -963,9 +934,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="programme-link"
-            >
-              WATCH PROGRAMME
-            </a>
+            >WATCH PROGRAMME</a>
           </div>
         </div>
 
@@ -974,12 +943,8 @@
           <img src="assets/safari-ya-neema.png" alt="Safari ya Neema">
 
           <div class="programme-info">
-            <div class="programme-day">
-              TUESDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">TUESDAY • 8:00–8:30 PM</div>
             <h3>Safari ya Neema</h3>
-
             <p>With Recorbert Chepkwony</p>
 
             <a
@@ -987,9 +952,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="programme-link"
-            >
-              WATCH PROGRAMME
-            </a>
+            >WATCH PROGRAMME</a>
           </div>
         </div>
 
@@ -998,12 +961,8 @@
           <img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana">
 
           <div class="programme-info">
-            <div class="programme-day">
-              WEDNESDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">WEDNESDAY • 8:00–8:30 PM</div>
             <h3>Wema wa Bwana</h3>
-
             <p>With Pst Joel Kamau</p>
 
             <a
@@ -1011,9 +970,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="programme-link"
-            >
-              WATCH PROGRAMME
-            </a>
+            >WATCH PROGRAMME</a>
           </div>
         </div>
 
@@ -1026,12 +983,8 @@
           >
 
           <div class="programme-info">
-            <div class="programme-day">
-              THURSDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">THURSDAY • 8:00–8:30 PM</div>
             <h3>Sauti ya Imani</h3>
-
             <p>With Bshp Francis Muya</p>
 
             <a
@@ -1039,9 +992,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="programme-link"
-            >
-              WATCH PROGRAMME
-            </a>
+            >WATCH PROGRAMME</a>
           </div>
         </div>
 
@@ -1054,12 +1005,8 @@
           >
 
           <div class="programme-info">
-            <div class="programme-day">
-              FRIDAY • 8:00–8:30 PM
-            </div>
-
+            <div class="programme-day">FRIDAY • 8:00–8:30 PM</div>
             <h3>Nuru ya Wokovu</h3>
-
             <p>With Mrs Phylis Muya</p>
 
             <a
@@ -1067,9 +1014,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="programme-link"
-            >
-              WATCH PROGRAMME
-            </a>
+            >WATCH PROGRAMME</a>
           </div>
         </div>
 
@@ -1083,9 +1028,7 @@
       <div class="event-card">
         <h3>KESHA</h3>
 
-        <div class="event-date">
-          9 OCTOBER 2026
-        </div>
+        <div class="event-date">9 OCTOBER 2026</div>
 
         <p class="event-scripture">
           “My grace is sufficient for you, for my power is made perfect in weakness.”
@@ -1096,12 +1039,11 @@
     </div>
   </section>
 
-  <!-- PREVIOUS WORSHIP NIGHT GALLERY -->
+  <!-- WORSHIP NIGHT GALLERY -->
   <section class="worship-gallery" id="worship-night">
     <div class="container">
       <div class="worship-thanks">
         <div class="eyebrow">A Night in His Presence</div>
-
         <h2>THANK YOU FOR WORSHIPPING WITH US</h2>
 
         <p>
@@ -1120,7 +1062,6 @@
       </div>
 
       <div class="slideshow" aria-label="Photos from the previous NEEMA TV Worship Night">
-
         <div class="slide active">
           <img
             src="assets/839935297_122151120069345663_3071052184519557634_n.jpg"
@@ -1133,8 +1074,8 @@
 
         <div class="slide">
           <img
-            src="assets/840923028_122116257477412928_3552145864519557634_n.jpg"
-            onerror="this.onerror=null;this.src='840923028_122116257477412928_3552145864519557634_n.jpg'"
+            src="assets/840923028_122116257477412928_3552145865939308890_n.jpg"
+            onerror="this.onerror=null;this.src='840923028_122116257477412928_3552145865939308890_n.jpg'"
             alt="Worship Night — prayer and ministry"
             loading="lazy"
           >
@@ -1194,11 +1135,7 @@
         <div class="contact-card">
           <h3>WhatsApp</h3>
           <p>Connect with NEEMA TV on WhatsApp</p>
-          <a
-            href="https://wa.me/254706107773"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer">
             +254 706 107 773
           </a>
         </div>
@@ -1206,52 +1143,33 @@
         <div class="contact-card">
           <h3>SMS</h3>
           <p>Contact NEEMA TV by SMS</p>
-          <a href="sms:+254706107773">
-            +254 706 107 773
-          </a>
+          <a href="sms:+254706107773">+254 706 107 773</a>
         </div>
 
         <div class="contact-card">
           <h3>Email</h3>
           <p>Email NEEMA TV</p>
-          <a href="mailto:neematv001@gmail.com">
-            neematv001@gmail.com
-          </a>
+          <a href="mailto:neematv001@gmail.com">neematv001@gmail.com</a>
         </div>
 
         <div class="contact-card">
           <h3>Phone</h3>
           <p>Call NEEMA TV</p>
-          <a href="tel:+254706107773">
-            +254 706 107 773
-          </a>
+          <a href="tel:+254706107773">+254 706 107 773</a>
         </div>
 
       </div>
 
-      <!-- SOCIAL MEDIA -->
       <div class="social">
         <h3>CONNECT WITH NEEMA TV</h3>
 
         <div class="social-links" aria-label="Follow NEEMA TV">
-          <a class="social-icon" href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube">
-          </a>
-          <a class="social-icon" href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook">
-          </a>
-          <a class="social-icon" href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok">
-          </a>
-          <a class="social-icon" href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer" aria-label="X">
-            <img src="https://cdn.simpleicons.org/x/000000" alt="X">
-          </a>
-          <a class="social-icon" href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp">
-          </a>
-          <a class="social-icon" href="https://www.instagram.com/neema.tv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram">
-          </a>
+          <a class="social-icon" href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube"></a>
+          <a class="social-icon" href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook"></a>
+          <a class="social-icon" href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok"></a>
+          <a class="social-icon" href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="https://cdn.simpleicons.org/x/000000" alt="X"></a>
+          <a class="social-icon" href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp"></a>
+          <a class="social-icon" href="https://www.instagram.com/neema.tv/" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on Instagram"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"></a>
         </div>
       </div>
     </div>
@@ -1259,117 +1177,88 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>
-      <strong>NEEMA TV</strong> — The Garden of Sufficient Grace
-    </p>
-
-    <p>
-      AWAKEN • INSPIRE • LEAD
-    </p>
-
-    <p>
-      Bringing Hope • Sharing the Word • Transforming Lives
-    </p>
-
-    <p style="margin-top: 10px;">
-      © 2026 NEEMA TV. All Rights Reserved.
-    </p>
+    <p><strong>NEEMA TV</strong> — The Garden of Sufficient Grace</p>
+    <p>AWAKEN • INSPIRE • LEAD</p>
+    <p>Bringing Hope • Sharing the Word • Transforming Lives</p>
+    <p style="margin-top: 10px;">© 2026 NEEMA TV. All Rights Reserved.</p>
   </footer>
 
-  <!-- NEEMA TV PRAYER & HOPE CONTACT PANEL -->
+  <!-- PRAYER REQUEST PANEL -->
   <button
     class="neema-chat-launcher"
     id="neemaChatLauncher"
     type="button"
     aria-controls="neemaChat"
     aria-expanded="false"
-  >
-    💚 Prayer & Hope
-  </button>
+  >🙏 Prayer Request</button>
 
-  <section
-    class="neema-chat"
-    id="neemaChat"
-    aria-label="NEEMA TV Prayer and Hope contact options"
-  >
+  <section class="neema-chat" id="neemaChat" aria-label="Prayer Request">
     <div class="neema-chat-head">
       <div>
-        <strong>NEEMA TV • Prayer & Hope</strong>
-        <small>Awaken • Inspire • Lead</small>
+        <strong>🙏 Prayer Request</strong>
+        <small>NEEMA TV • Awaken • Inspire • Lead</small>
       </div>
-
-      <button
-        class="neema-chat-close"
-        id="neemaChatClose"
-        type="button"
-        aria-label="Close Prayer and Hope"
-      >×</button>
+      <button class="neema-chat-close" id="neemaChatClose" type="button" aria-label="Close Prayer Request">×</button>
     </div>
 
     <div class="neema-contact-content">
-      <p class="neema-contact-intro">
-        You are not alone. 🙏 Choose prayer if you would like us to stand with
-        you in faith, or send us feedback if something needs our attention.
-        Our team will read your message and respond personally when available.
-      </p>
-
-      <!-- PRAYER REQUEST OPTIONS -->
       <div class="neema-contact-group">
-        <h3>🙏 Prayer Request</h3>
+        <h3>Prayer Request</h3>
+        <p><strong>What do you want us to pray about?</strong></p>
 
-        <p>
-          <strong>What do you want us to pray about?</strong><br>
-          Choose WhatsApp or SMS. The question will appear in your message
-          box, where you can type your prayer request and press Send.
-        </p>
+        <textarea
+          class="neema-message-input"
+          id="neemaPrayerMessage"
+          maxlength="1500"
+          placeholder="Type your prayer request here..."
+          aria-label="Type your prayer request"
+        ></textarea>
 
         <div class="neema-contact-actions">
-          <a
-            class="neema-action-wa"
-            href="https://wa.me/254706107773?text=What%20do%20you%20want%20us%20to%20pray%20about%3F%0A%0AMy%20prayer%20request%3A%20"
-            target="_blank"
-            rel="noopener noreferrer"
-          >🙏 Prayer via WhatsApp</a>
-
-          <a
-            class="neema-action-sms"
-            href="sms:+254706107773?body=What%20do%20you%20want%20us%20to%20pray%20about%3F%0A%0AMy%20prayer%20request%3A%20"
-          >✉️ Prayer via SMS</a>
-        </div>
-      </div>
-
-      <!-- COMPLAINT OPTIONS -->
-      <div class="neema-contact-group">
-        <h3>💬 Complaints & Feedback</h3>
-
-        <p>
-          <strong>What is your complaint?</strong><br>
-          Choose WhatsApp or SMS. The question will appear in your message
-          box so you can explain your concern and send it to NEEMA TV.
-          Your feedback helps us improve.
-        </p>
-
-        <div class="neema-contact-actions">
-          <a
-            class="neema-action-wa"
-            href="https://wa.me/254706107773?text=What%20is%20your%20complaint%3F%0A%0AMy%20complaint%3A%20"
-            target="_blank"
-            rel="noopener noreferrer"
-          >💬 Complain via WhatsApp</a>
-
-          <a
-            class="neema-action-sms"
-            href="sms:+254706107773?body=What%20is%20your%20complaint%3F%0A%0AMy%20complaint%3A%20"
-          >✉️ Complain via SMS</a>
+          <button class="neema-action-wa" type="button" data-message="neemaPrayerMessage" data-method="whatsapp">🙏 WhatsApp</button>
+          <button class="neema-action-sms" type="button" data-message="neemaPrayerMessage" data-method="sms">✉️ SMS</button>
         </div>
       </div>
     </div>
+  </section>
 
-    <p class="neema-contact-note">
-      Messages are sent directly to NEEMA TV's WhatsApp or SMS inbox at
-      +254 706 107 773. Replies are manual and may not be immediate.
-      Please share only personal details you are comfortable sending.
-    </p>
+  <!-- SEPARATE COMPLAINTS & FEEDBACK PANEL -->
+  <button
+    class="neema-complaint-launcher"
+    id="neemaComplaintLauncher"
+    type="button"
+    aria-controls="neemaComplaintPanel"
+    aria-expanded="false"
+  >💬 Complaints & Feedback</button>
+
+  <section class="neema-chat" id="neemaComplaintPanel" aria-label="Complaints and Feedback">
+    <div class="neema-chat-head">
+      <div>
+        <strong>💬 Complaints & Feedback</strong>
+        <small>NEEMA TV • Awaken • Inspire • Lead</small>
+      </div>
+      <button class="neema-chat-close" id="neemaComplaintClose" type="button" aria-label="Close Complaints and Feedback">×</button>
+    </div>
+
+    <div class="neema-contact-content">
+      <div class="neema-contact-group">
+        <h3>Complaints & Feedback</h3>
+        <p><strong>What is your complaint?</strong></p>
+
+        <textarea
+          class="neema-message-input"
+          id="neemaComplaintMessage"
+          maxlength="1500"
+          placeholder="Type your complaint here..."
+          aria-label="Type your complaint"
+        ></textarea>
+
+        <div class="neema-contact-actions">
+          <button class="neema-action-wa" type="button" data-message="neemaComplaintMessage" data-method="whatsapp">💬 WhatsApp</button>
+          <button class="neema-action-sms" type="button" data-message="neemaComplaintMessage" data-method="sms">✉️ SMS</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- WORSHIP NIGHT SLIDESHOW -->
@@ -1391,10 +1280,7 @@
 
       dots.forEach((dot, i) => {
         dot.classList.toggle("active", i === worshipSlideIndex);
-        dot.setAttribute(
-          "aria-pressed",
-          i === worshipSlideIndex ? "true" : "false"
-        );
+        dot.setAttribute("aria-pressed", i === worshipSlideIndex ? "true" : "false");
       });
 
       restartWorshipSlideshow();
@@ -1418,44 +1304,86 @@
       const gallery = document.querySelector("#worship-night .slideshow");
 
       if (gallery) {
-        gallery.addEventListener("mouseenter", () => {
-          clearInterval(worshipSlideTimer);
-        });
-
+        gallery.addEventListener("mouseenter", () => clearInterval(worshipSlideTimer));
         gallery.addEventListener("mouseleave", restartWorshipSlideshow);
       }
     });
   </script>
 
-  <!-- PRAYER & HOPE PANEL CONTROLS -->
+  <!-- PRAYER AND COMPLAINT BUTTON FUNCTIONALITY -->
   <script>
     (function () {
-      const panel = document.getElementById("neemaChat");
-      const launcher = document.getElementById("neemaChatLauncher");
-      const closeButton = document.getElementById("neemaChatClose");
+      const panels = [
+        {
+          panel: document.getElementById("neemaChat"),
+          launcher: document.getElementById("neemaChatLauncher"),
+          close: document.getElementById("neemaChatClose")
+        },
+        {
+          panel: document.getElementById("neemaComplaintPanel"),
+          launcher: document.getElementById("neemaComplaintLauncher"),
+          close: document.getElementById("neemaComplaintClose")
+        }
+      ];
 
-      function setPanelOpen(open) {
-        panel.classList.toggle("open", open);
-        launcher.setAttribute("aria-expanded", open ? "true" : "false");
+      function closeAllPanels() {
+        panels.forEach(function (item) {
+          item.panel.classList.remove("open");
+          item.launcher.setAttribute("aria-expanded", "false");
+        });
       }
 
-      launcher.addEventListener("click", function () {
-        setPanelOpen(!panel.classList.contains("open"));
+      panels.forEach(function (item) {
+        item.launcher.addEventListener("click", function () {
+          const shouldOpen = !item.panel.classList.contains("open");
+          closeAllPanels();
+
+          if (shouldOpen) {
+            item.panel.classList.add("open");
+            item.launcher.setAttribute("aria-expanded", "true");
+          }
+        });
+
+        item.close.addEventListener("click", function () {
+          item.panel.classList.remove("open");
+          item.launcher.setAttribute("aria-expanded", "false");
+        });
       });
 
-      closeButton.addEventListener("click", function () {
-        setPanelOpen(false);
+      document.querySelectorAll("[data-message][data-method]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const field = document.getElementById(button.getAttribute("data-message"));
+          const message = field.value.trim();
+
+          if (!message) {
+            field.focus();
+            field.placeholder = "Please type your message first...";
+            return;
+          }
+
+          const encodedMessage = encodeURIComponent(message);
+
+          if (button.getAttribute("data-method") === "whatsapp") {
+            window.open(
+              "https://wa.me/254706107773?text=" + encodedMessage,
+              "_blank",
+              "noopener,noreferrer"
+            );
+          } else {
+            window.location.href =
+              "sms:+254706107773?body=" + encodedMessage;
+          }
+        });
       });
     })();
   </script>
 
-  <!-- HLS PLAYER -->
+  <!-- HLS LIVE PLAYER -->
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
   <script>
     const video = document.getElementById("liveVideo");
 
-    // EXISTING NEEMA TV LIVE STREAM URL
     const streamUrl =
       "https://neematv.tail9f5d71.ts.net/hls/neematv.m3u8";
 
