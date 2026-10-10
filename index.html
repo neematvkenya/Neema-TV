@@ -1,3 +1,1570 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEEMA TV - The Garden of Sufficient Grace. Bringing Hope, Sharing the Word, Transforming Lives.">
+  <meta name="theme-color" content="#021f10">
+  <title>NEEMA TV | The Garden of Sufficient Grace</title>
+
+  <style>
+    :root {
+      --green: #079447;
+      --dark-green: #045d2d;
+      --deep-green: #021f10;
+      --gold: #ffb000;
+      --orange: #ff7800;
+      --white: #ffffff;
+      --muted: #c7d5cc;
+      --panel: #082b19;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--deep-green);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      color: var(--gold);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 38px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 6px;
+      padding: 13px 22px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #14200f;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+    }
+
+    /* HEADER */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2, 31, 16, 0.97);
+      border-bottom: 1px solid rgba(255, 176, 0, 0.25);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 68px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.12rem;
+      letter-spacing: 1.5px;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.66rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-live {
+      color: #ff5757;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 105px 0 100px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, rgba(7, 148, 71, 0.32), transparent 65%),
+        linear-gradient(135deg, #021f10, #06371d 55%, #021f10);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(255, 176, 0, 0.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      top: -170px;
+      left: -100px;
+    }
+
+    .hero::after {
+      bottom: -200px;
+      right: -100px;
+    }
+
+    .hero-logo {
+      width: 150px;
+      height: 140px;
+      object-fit: contain;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 0 22px rgba(7, 148, 71, 0.25));
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      line-height: 1.12;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      max-width: 740px;
+      margin: 0 auto 28px;
+      color: #e0e9e3;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-verse {
+      margin: 35px auto 0;
+      color: #c8d9ce;
+      font-style: italic;
+    }
+
+    /* LIVE TV */
+    .live-section {
+      background: #03170d;
+    }
+
+    .live-card {
+      max-width: 950px;
+      margin: auto;
+      padding: 22px;
+      border: 1px solid rgba(255, 176, 0, 0.24);
+      background: #061f12;
+      border-radius: 14px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.24);
+    }
+
+    .live-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .live-heading h3 {
+      color: var(--gold);
+      font-size: 1.35rem;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 55, 55, 0.12);
+      color: #ff7373;
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff3838;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      50% { opacity: 0.35; }
+    }
+
+    .video-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 9px;
+      background: #000;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .live-status {
+      min-height: 25px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin: 12px 0;
+    }
+
+    .live-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* PROGRAMMES */
+    .programmes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .programme-card {
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid rgba(255, 176, 0, 0.15);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .programme-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .programme-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #123521;
+    }
+
+    .programme-content {
+      padding: 20px;
+    }
+
+    .programme-content h3 {
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .programme-content p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .programme-content .btn {
+      margin-top: 10px;
+    }
+
+    /* EVENT */
+    .event-section {
+      background:
+        radial-gradient(ellipse at center, rgba(7, 148, 71, 0.18), transparent 70%),
+        #03170d;
+    }
+
+    .event-card {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 176, 0, 0.3);
+      background: #082b19;
+    }
+
+    .event-copy {
+      padding: clamp(25px, 5vw, 48px);
+    }
+
+    .event-copy h3 {
+      color: var(--gold);
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .event-copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .event-details {
+      color: var(--white);
+      margin: 18px 0 24px;
+    }
+
+    .event-art {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(145deg, #075b2c, #021f10);
+    }
+
+    .event-art .cross {
+      font-size: 5rem;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+
+    .event-art strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-top: 15px;
+    }
+
+    .event-art span {
+      color: #e2eee5;
+    }
+
+    /* WORSHIP NIGHT PHOTO SLIDESHOW */
+    .worship-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at top, rgba(7, 148, 71, 0.2), transparent 60%),
+        linear-gradient(180deg, #021f10, #062918 55%, #021f10);
+    }
+
+    .worship-intro {
+      max-width: 850px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .worship-intro h2 {
+      color: var(--gold);
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .worship-intro p {
+      color: #e0e9e3;
+      margin-bottom: 14px;
+    }
+
+    .worship-verse {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 15px 20px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255, 176, 0, 0.07);
+      color: #f7e6b8;
+      text-align: left;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .worship-verse strong {
+      display: block;
+      color: var(--gold);
+      margin-top: 7px;
+      font-size: 0.9rem;
+    }
+
+    .worship-words {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 25px 0 34px;
+    }
+
+    .worship-words span {
+      padding: 9px 15px;
+      border: 1px solid rgba(255, 176, 0, 0.38);
+      border-radius: 30px;
+      color: #ffe3a0;
+      background: rgba(2, 31, 16, 0.65);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .slideshow {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #000;
+      border: 1px solid rgba(255, 176, 0, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .slide-stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      min-height: 250px;
+      background: #000;
+    }
+
+    .worship-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+      pointer-events: none;
+    }
+
+    .worship-slide.active {
+      opacity: 1;
+    }
+
+    .slide-shade {
+      position: absolute;
+      inset: 45% 0 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.76));
+      pointer-events: none;
+    }
+
+    .slide-caption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 15px;
+      color: #fff;
+    }
+
+    .slide-caption strong {
+      font-size: clamp(1rem, 3vw, 1.45rem);
+      color: var(--gold);
+      display: block;
+    }
+
+    .slide-caption span {
+      font-size: 0.85rem;
+      color: #e4e4e4;
+    }
+
+    .slide-counter {
+      flex-shrink: 0;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 5px 11px;
+      font-size: 0.82rem;
+    }
+
+    .slide-arrow {
+      position: absolute;
+      z-index: 4;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.58);
+      cursor: pointer;
+      font-size: 1.65rem;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .slide-arrow:hover {
+      background: var(--gold);
+      color: #10200f;
+    }
+
+    .slide-prev { left: 15px; }
+    .slide-next { right: 15px; }
+
+    .slide-controls {
+      padding: 16px 18px 19px;
+      background: #061c10;
+      text-align: center;
+    }
+
+    .slide-dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 auto 15px;
+    }
+
+    .slide-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #567161;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .slide-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    .slideshow-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .slideshow-note {
+      margin-top: 12px;
+      color: #9fb4a6;
+      font-size: 0.8rem;
+    }
+
+    .worship-closing {
+      max-width: 850px;
+      margin: 35px auto 0;
+      text-align: center;
+    }
+
+    .worship-closing h3 {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .worship-closing p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid rgba(255, 176, 0, 0.2);
+      padding: 25px;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-card h3 {
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .contact-card .btn {
+      margin-top: 15px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      background: #0b3921;
+      border: 1px solid rgba(255, 176, 0, 0.2);
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background 0.2s;
+    }
+
+    .social-links a:hover {
+      background: var(--green);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 28px 0;
+      background: #01150b;
+      border-top: 1px solid rgba(255, 176, 0, 0.2);
+      text-align: center;
+    }
+
+    .footer-motto {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .footer p {
+      color: #aebfb4;
+      font-size: 0.88rem;
+    }
+
+    .footer a { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .nav {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links { gap: 13px; }
+
+      .programmes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .event-card { grid-template-columns: 1fr; }
+      .event-art { min-height: 220px; }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 55px 0; }
+
+      .brand img {
+        width: 56px;
+        height: 52px;
+      }
+
+      .brand-text strong { font-size: 1rem; }
+      .brand-text span { font-size: 0.58rem; }
+
+      .nav-links {
+        width: 100%;
+        gap: 10px 15px;
+      }
+
+      .nav-links a { font-size: 0.76rem; }
+      .hero { padding: 75px 0; }
+
+      .hero-logo {
+        width: 120px;
+        height: 110px;
+      }
+
+      .programmes-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .programme-card img { height: 230px; }
+
+      .live-card { padding: 13px; }
+
+      .slide-stage {
+        aspect-ratio: 4 / 3;
+        min-height: 220px;
+      }
+
+      .slide-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.35rem;
+      }
+
+      .slide-prev { left: 8px; }
+      .slide-next { right: 8px; }
+
+      .slide-caption {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .slide-caption span { font-size: 0.72rem; }
+
+      .worship-verse { padding: 12px; }
+      .social-links { gap: 8px; }
+
+      .social-links a {
+        padding: 9px 11px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="NEEMA TV Home">
+        <img src="assets/neema-logo.png" alt="NEEMA TV Logo">
+        <div class="brand-text">
+          <strong>NEEMA TV</strong>
+          <span>THE GARDEN OF SUFFICIENT GRACE</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">HOME</a>
+        <a href="#live" class="nav-live">● LIVE TV</a>
+        <a href="#programmes">PROGRAMMES</a>
+        <a href="#event">EVENT</a>
+        <a href="#worship-night">WORSHIP NIGHT</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <img class="hero-logo" src="assets/neema-logo.png" alt="NEEMA TV">
+
+        <p class="hero-tagline">AWAKEN • INSPIRE • LEAD</p>
+
+        <h1>Welcome to <span>NEEMA TV</span></h1>
+
+        <p class="hero-description">
+          Christ-centered television bringing the Gospel of Jesus Christ
+          to homes, communities and nations. Bringing hope, sharing the
+          Word, transforming lives.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#live" class="btn btn-gold">▶ Watch Live</a>
+          <a href="#programmes" class="btn btn-outline">Explore Programmes</a>
+          <a href="#worship-night" class="btn btn-green">Worship Night Memories</a>
+        </div>
+
+        <p class="hero-verse">
+          “The grace of our Lord was poured out on me abundantly.”
+          — 1 Timothy 1:14
+        </p>
+      </div>
+    </section>
+
+    <!-- LIVE TV -->
+    <section class="section live-section" id="live">
+      <div class="container">
+        <p class="eyebrow">Stay Connected</p>
+        <h2 class="section-title">Watch NEEMA TV Live</h2>
+        <p class="section-subtitle">
+          Stay tuned for the Word of God, uplifting programmes and
+          messages of hope. Join us wherever you are.
+        </p>
+
+        <div class="live-card">
+          <div class="live-heading">
+            <h3>NEEMA TV — Live Channel</h3>
+            <span class="live-badge">
+              <span class="live-dot"></span> LIVE STREAM
+            </span>
+          </div>
+
+          <div class="video-wrapper">
+            <video
+              id="liveVideo"
+              controls
+              playsinline
+              preload="none"
+              poster="assets/neema-logo.png"
+            >
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+
+          <p class="live-status" id="liveStatus" aria-live="polite">
+            Connecting to NEEMA TV Live...
+          </p>
+
+          <div class="live-actions">
+            <button class="btn btn-green" id="retryLive" type="button">
+              ↻ Reconnect Live
+            </button>
+            <button class="btn btn-outline" id="toggleFullscreen" type="button">
+              ⛶ Fullscreen
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMMES -->
+    <section class="section" id="programmes">
+      <div class="container">
+        <p class="eyebrow">Faith • Family • Transformation</p>
+        <h2 class="section-title">Our Programmes</h2>
+        <p class="section-subtitle">
+          Inspiring programmes designed to strengthen faith, encourage
+          families and share the transforming message of Jesus Christ.
+          Select a programme to watch.
+        </p>
+
+        <div class="programmes-grid">
+
+          <article class="programme-card">
+            <img src="assets/mke-wa-thamani.jpg" alt="Mke wa Thamani" loading="lazy">
+            <div class="programme-content">
+              <h3>Mke wa Thamani</h3>
+              <p>A programme celebrating the value, purpose and calling of women.</p>
+              <p><strong>Presenter:</strong> Ann Kamau</p>
+              <p><strong>Schedule:</strong> Monday, 8:00–8:30 PM</p>
+              <a class="btn btn-gold" href="https://www.youtube.com/watch?v=r8tGaQ2oD1Y&amp;t=698s" target="_blank" rel="noopener noreferrer">Watch Programme ↗</a>
+            </div>
+          </article>
+
+          <article class="programme-card">
+            <img src="assets/safari-ya-neema.png" alt="Safari ya Neema" loading="lazy">
+            <div class="programme-content">
+              <h3>Safari ya Neema</h3>
+              <p>Discover God's grace and encouragement for the journey of life.</p>
+              <p><strong>Presenter:</strong> Recorbert Chepkwony</p>
+              <p><strong>Schedule:</strong> Tuesday, 8:00–8:30 PM</p>
+              <a class="btn btn-gold" href="https://youtu.be/IzjcsplvG8M" target="_blank" rel="noopener noreferrer">Watch Programme ↗</a>
+            </div>
+          </article>
+
+          <article class="programme-card">
+            <img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana" loading="lazy">
+            <div class="programme-content">
+              <h3>Wema wa Bwana</h3>
+              <p>Testimonies and reflections on the goodness and faithfulness of God.</p>
+              <p><strong>Presenter:</strong> Pst Joel Kamau</p>
+              <p><strong>Schedule:</strong> Wednesday, 8:30–9:00 PM</p>
+              <a class="btn btn-gold" href="https://youtu.be/9STvK9FpL88" target="_blank" rel="noopener noreferrer">Watch Programme ↗</a>
+            </div>
+          </article>
+
+          <article class="programme-card">
+            <img src="assets/sauti-ya-imani.png" alt="Sauti ya Imani" loading="lazy">
+            <div class="programme-content">
+              <h3>Sauti ya Imani</h3>
+              <p>Faith-building messages to encourage believers in their walk with God.</p>
+              <p><strong>Presenter:</strong> Bshp Francis Muya</p>
+              <p><strong>Schedule:</strong> Thursday, 8:00–8:30 PM</p>
+              <a class="btn btn-gold" href="https://youtu.be/0zOmTGLBhNM" target="_blank" rel="noopener noreferrer">Watch Programme ↗</a>
+            </div>
+          </article>
+
+          <article class="programme-card">
+            <img src="assets/nuru-ya-wokovu.png" alt="Nuru ya Wokovu" loading="lazy">
+            <div class="programme-content">
+              <h3>Nuru ya Wokovu</h3>
+              <p>Sharing the light of salvation and the hope found in Jesus Christ.</p>
+              <p><strong>Presenter:</strong> Mrs Phylis Muya</p>
+              <p><strong>Schedule:</strong> Friday, 8:00–8:30 PM</p>
+              <a class="btn btn-gold" href="https://youtu.be/xkam1iLwQO4" target="_blank" rel="noopener noreferrer">Watch Programme ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT -->
+    <section class="section event-section" id="event">
+      <div class="container">
+        <p class="eyebrow">Gather in His Presence</p>
+        <h2 class="section-title">Upcoming Event</h2>
+        <p class="section-subtitle">
+          Come expectant. Come in faith. Let us worship and seek the Lord together.
+        </p>
+
+        <div class="event-card">
+          <div class="event-copy">
+            <h3>NEEMA TV KESHA</h3>
+            <p>
+              A night of prayer, worship and seeking the sufficient grace
+              of our Lord Jesus Christ.
+            </p>
+
+            <div class="event-details">
+              <p><strong>📅 Date:</strong> 9 October 2026</p>
+              <p><strong>📖 Theme Scripture:</strong> 2 Corinthians 12:9</p>
+              <p>
+                “My grace is sufficient for you, for my power is made
+                perfect in weakness.”
+              </p>
+            </div>
+
+            <a class="btn btn-gold"
+               href="https://wa.me/254706107773?text=Hello%20NEEMA%20TV%2C%20please%20share%20details%20about%20your%20upcoming%20events."
+               target="_blank" rel="noopener noreferrer">
+              Ask About Our Events
+            </a>
+          </div>
+
+          <div class="event-art">
+            <div class="cross" aria-hidden="true">✝</div>
+            <strong>KESHA</strong>
+            <span>A Night in His Presence</span>
+            <span>2 Corinthians 12:9</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORSHIP NIGHT THANK YOU AND SLIDESHOW -->
+    <section class="section worship-section" id="worship-night">
+      <div class="container">
+
+        <div class="worship-intro">
+          <p class="eyebrow">A Night We Will Always Remember</p>
+          <h2>Worship Night — Thank You!</h2>
+
+          <p>
+            From the bottom of our hearts, thank you for joining us for
+            Worship Night. We give all glory and honour to Jesus Christ
+            for the beautiful time we shared in His presence.
+          </p>
+
+          <p>
+            It was more than a gathering. It was a time of worship,
+            prayer, fellowship and seeking the heart of God. Thank you
+            to everyone who attended, served, prayed and worshipped with us.
+            May the Lord strengthen you, fill you with His peace, and
+            continue His good work in your life.
+          </p>
+
+          <div class="worship-verse">
+            “Give thanks to the LORD, for He is good; His love endures forever.”
+            <strong>— Psalm 107:1</strong>
+          </div>
+
+          <div class="worship-words">
+            <span>Worship</span>
+            <span>Prayer</span>
+            <span>The Move of God</span>
+            <span>The Encounter</span>
+            <span>The Presence of God</span>
+          </div>
+        </div>
+
+        <div class="slideshow" id="worshipSlideshow" role="region" aria-label="Worship Night photo slideshow" aria-roledescription="carousel">
+          <div class="slide-stage" id="slideStage">
+
+            <img class="worship-slide active" src="assets/839935297_122151120069345663_3071052184519557634_n.jpg" alt="NEEMA TV Worship Night memory 1">
+            <img class="worship-slide" src="assets/840923028_122116257477412928_3552145865939308890_n.jpg" alt="NEEMA TV Worship Night memory 2" loading="lazy">
+            <img class="worship-slide" src="assets/841099668_122151120717345663_5249913816322467498_n.jpg" alt="NEEMA TV Worship Night memory 3" loading="lazy">
+            <img class="worship-slide" src="assets/841296525_122116255893412928_2277331308339794587_n.jpg" alt="NEEMA TV Worship Night memory 4" loading="lazy">
+            <img class="worship-slide" src="assets/841296525_122116256127412928_580425044995855144_n.jpg" alt="NEEMA TV Worship Night memory 5" loading="lazy">
+            <img class="worship-slide" src="assets/841296922_122116257849412928_2738482761693479140_n.jpg" alt="NEEMA TV Worship Night memory 6" loading="lazy">
+            <img class="worship-slide" src="assets/841340120_122151120459345663_4394902439384109213_n.jpg" alt="NEEMA TV Worship Night memory 7" loading="lazy">
+            <img class="worship-slide" src="assets/841369991_122116255851412928_937976800502658752_n.jpg" alt="NEEMA TV Worship Night memory 8" loading="lazy">
+            <img class="worship-slide" src="assets/841464499_122151118983345663_1678222321485340439_n.jpg" alt="NEEMA TV Worship Night memory 9" loading="lazy">
+            <img class="worship-slide" src="assets/841480885_122116254849412928_5875347185328286838_n.jpg" alt="NEEMA TV Worship Night memory 10" loading="lazy">
+            <img class="worship-slide" src="assets/841487389_122116256385412928_1965553417641210726_n.jpg" alt="NEEMA TV Worship Night memory 11" loading="lazy">
+            <img class="worship-slide" src="assets/841499314_122151120159345663_354900417626781225_n.jpg" alt="NEEMA TV Worship Night memory 12" loading="lazy">
+            <img class="worship-slide" src="assets/841639964_122116255179412928_5656048292772657313_n.jpg" alt="NEEMA TV Worship Night memory 13" loading="lazy">
+            <img class="worship-slide" src="assets/841644986_122116256925412928_3628543929259520042_n.jpg" alt="NEEMA TV Worship Night memory 14" loading="lazy">
+            <img class="worship-slide" src="assets/841651264_122116255113412928_3128187777475166049_n.jpg" alt="NEEMA TV Worship Night memory 15" loading="lazy">
+            <img class="worship-slide" src="assets/841687364_122116256577412928_7456591043419245474_n.jpg" alt="NEEMA TV Worship Night memory 16" loading="lazy">
+            <img class="worship-slide" src="assets/841736048_122116257069412928_229107604653710442_n.jpg" alt="NEEMA TV Worship Night memory 17" loading="lazy">
+            <img class="worship-slide" src="assets/842033678_122116257435412928_8018580157289617291_n.jpg" alt="NEEMA TV Worship Night memory 18" loading="lazy">
+            <img class="worship-slide" src="assets/842055855_122116256973412928_8511905788501151299_n.jpg" alt="NEEMA TV Worship Night memory 19" loading="lazy">
+            <img class="worship-slide" src="assets/842143165_122116258167412928_2786692896280410211_n.jpg" alt="NEEMA TV Worship Night memory 20" loading="lazy">
+            <img class="worship-slide" src="assets/842466031_122116259085412928_2471802590367101182_n.jpg" alt="NEEMA TV Worship Night memory 21" loading="lazy">
+            <img class="worship-slide" src="assets/842977454_122116257585412928_4707515694614213684_n.jpg" alt="NEEMA TV Worship Night memory 22" loading="lazy">
+            <img class="worship-slide" src="assets/843167953_122116255923412928_209051416971891589_n.jpg" alt="NEEMA TV Worship Night memory 23" loading="lazy">
+            <img class="worship-slide" src="assets/843264701_122151115125345663_8145859101503056529_n.jpg" alt="NEEMA TV Worship Night memory 24" loading="lazy">
+            <img class="worship-slide" src="assets/843299928_40046230844976307_3386500137233116405_n.jpg" alt="NEEMA TV Worship Night memory 25" loading="lazy">
+
+            <div class="slide-shade"></div>
+
+            <button class="slide-arrow slide-prev" id="previousSlide" type="button" aria-label="Previous Worship Night photo">&#8249;</button>
+            <button class="slide-arrow slide-next" id="nextSlide" type="button" aria-label="Next Worship Night photo">&#8250;</button>
+
+            <div class="slide-caption">
+              <div>
+                <strong>Worship Night Memories</strong>
+                <span>Celebrating the goodness of God together</span>
+              </div>
+              <span class="slide-counter" id="slideCounter">1 / 25</span>
+            </div>
+          </div>
+
+          <div class="slide-controls">
+            <div class="slide-dots" id="slideDots" aria-label="Choose a Worship Night photo"></div>
+
+            <div class="slideshow-buttons">
+              <button class="btn btn-outline" type="button" id="pauseSlideshow" aria-pressed="false">Ⅱ Pause Slideshow</button>
+              <button class="btn btn-gold" type="button" id="playSlideshow">▶ Play Slideshow</button>
+            </div>
+
+            <p class="slideshow-note">
+              Relive the moments. Celebrate His goodness. Give Him all the glory.
+            </p>
+          </div>
+        </div>
+
+        <div class="worship-closing">
+          <h3>Don’t Miss Our Next Event!</h3>
+          <p>
+            The next encounter could be the beginning of a new chapter in
+            your walk with God. Stay connected to NEEMA TV for announcements
+            and upcoming gatherings. We love you, and we look forward to
+            worshipping with you again!
+          </p>
+
+          <a class="btn btn-gold"
+             href="https://wa.me/254706107773?text=Hello%20NEEMA%20TV%2C%20I%20would%20love%20to%20know%20about%20your%20next%20Worship%20Night%20or%20event."
+             target="_blank" rel="noopener noreferrer">
+            Ask About the Next Event
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="eyebrow">We Would Love to Hear From You</p>
+        <h2 class="section-title">Contact NEEMA TV</h2>
+        <p class="section-subtitle">
+          Need prayer, want to share a testimony, or have a question?
+          Get in touch with us. We are here to serve you.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">💬</div>
+            <h3>WhatsApp / Call Us</h3>
+            <p>+254 706 107 773</p>
+            <a class="btn btn-green"
+               href="https://wa.me/254706107773?text=Hello%20NEEMA%20TV%2C%20how%20can%20you%20help%20me%3F"
+               target="_blank" rel="noopener noreferrer">
+              Message Us
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">✉️</div>
+            <h3>Email Us</h3>
+            <p>neematv001@gmail.com</p>
+            <a class="btn btn-green" href="mailto:neematv001@gmail.com">Send Email</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <h3>Our Location</h3>
+            <p>Nakuru, Kenya</p>
+            <a class="btn btn-green"
+               href="https://www.google.com/maps/search/?api=1&amp;query=Nakuru%2C+Kenya"
+               target="_blank" rel="noopener noreferrer">
+              Find Nakuru
+            </a>
+          </div>
+        </div>
+
+        <div class="social-links" aria-label="NEEMA TV social media">
+          <a href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="mailto:neematv001@gmail.com?subject=NEEMA%20TV%20Instagram">Instagram</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-motto">AWAKEN • INSPIRE • LEAD</p>
+      <p>NEEMA TV — The Garden of Sufficient Grace</p>
+      <p>Bringing Hope • Sharing the Word • Transforming Lives</p>
+      <p style="margin-top: 10px;">
+        © <span id="currentYear"></span> NEEMA TV. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // ---------------------------------------------
+      // NEEMA TV LIVE HLS PLAYER
+      // ---------------------------------------------
+      const liveVideo = document.getElementById("liveVideo");
+      const liveStatus = document.getElementById("liveStatus");
+      const retryLive = document.getElementById("retryLive");
+      const toggleFullscreen = document.getElementById("toggleFullscreen");
+
+      const streamUrl =
+        "https://neematv.tail9f5d71.ts.net/hls/neematv.m3u8";
+
+      let hlsInstance = null;
+      let reconnectTimer = null;
+
+      function setLiveStatus(message) {
+        liveStatus.textContent = message;
+      }
+
+      function stopReconnectTimer() {
+        if (reconnectTimer) {
+          clearTimeout(reconnectTimer);
+          reconnectTimer = null;
+        }
+      }
+
+      function loadLiveStream() {
+        stopReconnectTimer();
+        setLiveStatus("Connecting to NEEMA TV Live...");
+
+        if (hlsInstance) {
+          hlsInstance.destroy();
+          hlsInstance = null;
+        }
+
+        liveVideo.pause();
+        liveVideo.removeAttribute("src");
+        liveVideo.load();
+
+        if (liveVideo.canPlayType("application/vnd.apple.mpegurl")) {
+          liveVideo.src = streamUrl;
+          liveVideo.load();
+
+          liveVideo.play()
+            .then(function () {
+              setLiveStatus("You are watching NEEMA TV Live.");
+            })
+            .catch(function () {
+              setLiveStatus("Stream ready. Press Play to begin watching.");
+            });
+
+          return;
+        }
+
+        if (window.Hls && window.Hls.isSupported()) {
+          hlsInstance = new Hls({
+            enableWorker: true,
+            lowLatencyMode: true,
+            maxBufferLength: 20,
+            backBufferLength: 30
+          });
+
+          hlsInstance.loadSource(streamUrl);
+          hlsInstance.attachMedia(liveVideo);
+
+          hlsInstance.on(Hls.Events.MANIFEST_PARSED, function () {
+            liveVideo.play()
+              .then(function () {
+                setLiveStatus("You are watching NEEMA TV Live.");
+              })
+              .catch(function () {
+                setLiveStatus("Stream ready. Press Play to begin watching.");
+              });
+          });
+
+          hlsInstance.on(Hls.Events.ERROR, function (event, data) {
+            if (!data || !data.fatal) return;
+
+            setLiveStatus(
+              "The live stream is temporarily unavailable. Reconnecting..."
+            );
+
+            if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+              hlsInstance.startLoad();
+            } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+              hlsInstance.recoverMediaError();
+            } else {
+              hlsInstance.destroy();
+              hlsInstance = null;
+              stopReconnectTimer();
+              reconnectTimer = setTimeout(loadLiveStream, 3000);
+            }
+          });
+
+          return;
+        }
+
+        setLiveStatus(
+          "This browser does not support HLS playback. Please try an updated browser."
+        );
+      }
+
+      function loadHlsLibrary() {
+        if (
+          liveVideo.canPlayType("application/vnd.apple.mpegurl") ||
+          (window.Hls && window.Hls.isSupported())
+        ) {
+          loadLiveStream();
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src =
+          "https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js";
+
+        script.onload = loadLiveStream;
+
+        script.onerror = function () {
+          setLiveStatus(
+            "Unable to load the video player library. Check your internet connection and try again."
+          );
+        };
+
+        document.head.appendChild(script);
+      }
+
+      retryLive.addEventListener("click", loadLiveStream);
+
+      toggleFullscreen.addEventListener("click", function () {
+        if (liveVideo.requestFullscreen) {
+          liveVideo.requestFullscreen();
+        } else if (liveVideo.webkitEnterFullscreen) {
+          liveVideo.webkitEnterFullscreen();
+        } else if (liveVideo.webkitRequestFullscreen) {
+          liveVideo.webkitRequestFullscreen();
+        } else {
+          setLiveStatus(
+            "Fullscreen is unavailable in this browser. Try the video controls."
+          );
+        }
+      });
+
+      liveVideo.addEventListener("playing", function () {
+        setLiveStatus("You are watching NEEMA TV Live.");
+      });
+
+      liveVideo.addEventListener("waiting", function () {
+        setLiveStatus("Buffering live video...");
+      });
+
+      liveVideo.addEventListener("error", function () {
+        setLiveStatus(
+          "Unable to play the live stream right now. Check the connection and try Reconnect Live."
+        );
+      });
+
+      loadHlsLibrary();
+
+      // ---------------------------------------------
+      // WORSHIP NIGHT AUTOMATIC PHOTO SLIDESHOW
+      // ---------------------------------------------
+      const slideshow = document.getElementById("worshipSlideshow");
+      const slides = Array.from(
+        slideshow.querySelectorAll(".worship-slide")
+      );
+
+      const previousButton = document.getElementById("previousSlide");
+      const nextButton = document.getElementById("nextSlide");
+      const pauseButton = document.getElementById("pauseSlideshow");
+      const playButton = document.getElementById("playSlideshow");
+      const slideCounter = document.getElementById("slideCounter");
+      const dotsContainer = document.getElementById("slideDots");
+
+      let currentSlide = 0;
+      let slideshowTimer = null;
+      let isPaused = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      slides.forEach(function (slide, index) {
+        const dot = document.createElement("button");
+
+        dot.type = "button";
+        dot.className = "slide-dot";
+        dot.setAttribute(
+          "aria-label",
+          "Show Worship Night photo " + (index + 1)
+        );
+
+        dot.addEventListener("click", function () {
+          showSlide(index);
+          restartSlideshow();
+        });
+
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = Array.from(
+        dotsContainer.querySelectorAll(".slide-dot")
+      );
+
+      function showSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, slideIndex) {
+          const active = slideIndex === currentSlide;
+          slide.classList.toggle("active", active);
+          slide.setAttribute("aria-hidden", String(!active));
+        });
+
+        dots.forEach(function (dot, dotIndex) {
+          const active = dotIndex === currentSlide;
+          dot.classList.toggle("active", active);
+
+          if (active) {
+            dot.setAttribute("aria-current", "true");
+          } else {
+            dot.removeAttribute("aria-current");
+          }
+        });
+
+        slideCounter.textContent =
+          (currentSlide + 1) + " / " + slides.length;
+      }
+
+      function stopSlideshowTimer() {
+        if (slideshowTimer) {
+          clearInterval(slideshowTimer);
+          slideshowTimer = null;
+        }
+      }
+
+      function startSlideshow() {
+        stopSlideshowTimer();
+        isPaused = false;
+
+        pauseButton.setAttribute("aria-pressed", "false");
+        pauseButton.textContent = "Ⅱ Pause Slideshow";
+
+        slideshowTimer = setInterval(function () {
+          showSlide(currentSlide + 1);
+        }, 4500);
+      }
+
+      function pauseSlideshow() {
+        stopSlideshowTimer();
+        isPaused = true;
+
+        pauseButton.setAttribute("aria-pressed", "true");
+        pauseButton.textContent = "Ⅱ Slideshow Paused";
+      }
+
+      function restartSlideshow() {
+        if (!isPaused) {
+          startSlideshow();
+        }
+      }
+
+      previousButton.addEventListener("click", function () {
+        showSlide(currentSlide - 1);
+        restartSlideshow();
+      });
+
+      nextButton.addEventListener("click", function () {
+        showSlide(currentSlide + 1);
+        restartSlideshow();
+      });
+
+      pauseButton.addEventListener("click", pauseSlideshow);
+      playButton.addEventListener("click", startSlideshow);
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              stopSlideshowTimer();
+            } else if (!isPaused) {
+              startSlideshow();
+            }
+          });
+        }, { threshold: 0.15 });
+
+        observer.observe(slideshow);
+      } else if (!isPaused) {
+        startSlideshow();
+      }
+
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+          stopSlideshowTimer();
+        } else if (!isPaused) {
+          startSlideshow();
+        }
+      });
+
+      slides.forEach(function (slide) {
+        slide.addEventListener("error", function () {
+          console.error(
+            "Worship Night photo could not be loaded:",
+            slide.src
+          );
+        });
+      });
+
+      showSlide(0);
+
+      if (!isPaused) {
+        startSlideshow();
+      }
+    });
+  </script>
+
+</body>
+</html>
 ```html
 <!DOCTYPE html>
 <html lang="en">
