@@ -1,601 +1,1511 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="NEEMA TV — The Garden of Sufficient Grace. Bringing Hope, Sharing the Word, Transforming Lives.">
-<title>NEEMA TV | The Garden of Sufficient Grace</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEEMA TV - The Garden of Sufficient Grace. Bringing Hope, Sharing the Word, Transforming Lives.">
+  <title>NEEMA TV | The Garden of Sufficient Grace</title>
 
-<style>
-:root {
-  --green: #079447;
-  --dark-green: #045d2d;
-  --deep: #021f10;
-  --gold: #ffb000;
-  --white: #ffffff;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-body { font-family: Arial, Helvetica, sans-serif; background: var(--deep); color: var(--white); line-height: 1.6; }
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-header { position: sticky; top: 0; z-index: 1000; background: rgba(2,31,16,.97); border-bottom: 1px solid rgba(7,148,71,.4); backdrop-filter: blur(10px); }
-.nav-container { max-width: 1250px; margin: auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-.brand-area { display: flex; align-items: center; gap: 15px; flex-shrink: 0; }
-.logo { height: 58px; width: auto; object-fit: contain; }
-.brand-social { display: flex; align-items: center; gap: 7px; }
-.brand-social a { display: flex; width: 34px; height: 34px; padding: 6px; align-items: center; justify-content: center; background: #fff; border-radius: 50%; }
-.brand-social img { width: 100%; height: 100%; object-fit: contain; }
-nav { display: flex; gap: 17px; flex-wrap: wrap; justify-content: center; }
-nav a { font-weight: bold; font-size: 13px; }
-nav a:hover { color: var(--gold); }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #021f10;
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-section { padding: 72px 20px; }
-.container { max-width: 1200px; margin: auto; }
-.section-title { text-align: center; color: var(--gold); font-size: clamp(29px,5vw,43px); margin-bottom: 12px; }
-.section-subtitle { text-align: center; color: #cbd8d0; max-width: 800px; margin: 0 auto 38px; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.hero { min-height: 82vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 65px 20px; background: linear-gradient(rgba(2,31,16,.86),rgba(2,31,16,.96)), url("assets/neema-logo.png") center/contain no-repeat; }
-.hero-content { max-width: 950px; margin: auto; }
-.welcome { font-size: clamp(20px,3vw,30px); }
-.hero h1 { color: var(--green); font-size: clamp(46px,8vw,90px); line-height: 1.1; font-weight: 900; letter-spacing: 2px; }
-.garden { color: var(--gold); font-size: clamp(25px,5vw,50px); line-height: 1.15; font-weight: 800; margin: 10px 0 17px; }
-.motto { font-size: clamp(16px,2.5vw,24px); font-weight: bold; letter-spacing: 2px; margin-bottom: 20px; }
-.hero-description { max-width: 800px; margin: 0 auto 28px; color: #e7eee9; font-size: 17px; }
-.hero-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-.btn { display: inline-block; padding: 12px 22px; border-radius: 28px; font-weight: bold; transition: .25s; }
-.btn:hover { transform: translateY(-2px); }
-.btn-live { background: #d90000; }
-.btn-whatsapp { background: #25d366; color: #052b16; }
-.btn-sms { background: var(--green); }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-#live, #contact { background: #03170d; }
-.live-box { max-width: 1000px; margin: auto; background: #061f12; border: 1px solid rgba(7,148,71,.4); border-radius: 18px; padding: 20px; }
-.live-title { color: var(--gold); text-align: center; font-size: 25px; margin-bottom: 16px; }
-.video-wrapper { aspect-ratio: 16/9; width: 100%; background: #000; border-radius: 12px; overflow: hidden; }
-video { width: 100%; height: 100%; object-fit: contain; background: #000; }
-.live-status { text-align: center; color: #ff3333; font-weight: bold; margin-top: 12px; }
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2, 31, 16, 0.97);
+      border-bottom: 1px solid rgba(7, 148, 71, 0.35);
+      backdrop-filter: blur(10px);
+    }
 
-.programmes-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(235px,1fr)); gap: 24px; }
-.programme-card { background: #062a17; border: 1px solid rgba(7,148,71,.35); border-radius: 16px; overflow: hidden; transition: .25s; }
-.programme-card:hover { transform: translateY(-4px); border-color: var(--green); }
-.programme-card > img { width: 100%; height: 195px; object-fit: cover; }
-.programme-info { padding: 19px; }
-.programme-day { color: var(--gold); font-weight: bold; font-size: 13px; margin-bottom: 5px; }
-.programme-info h3 { font-size: 21px; margin-bottom: 7px; }
-.programme-info p { color: #c9d7ce; font-size: 14px; margin-bottom: 15px; }
-.programme-link { display: inline-block; background: var(--green); padding: 9px 15px; border-radius: 22px; font-size: 13px; font-weight: bold; }
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-.event { background: linear-gradient(135deg,#063d21,#021f10); text-align: center; }
-.event-card { max-width: 850px; margin: auto; padding: 35px 25px; border: 1px solid rgba(255,176,0,.45); border-radius: 18px; background: rgba(0,0,0,.15); }
-.event-card h3 { color: var(--gold); font-size: 38px; margin-bottom: 10px; }
-.event-date { font-size: 24px; font-weight: bold; margin-bottom: 12px; }
-.event-scripture { color: #d7e2da; font-style: italic; }
+    .logo {
+      height: 58px;
+      width: auto;
+      object-fit: contain;
+    }
 
-.worship-gallery { background: linear-gradient(180deg,#021f10,#06351d 55%,#021f10); }
-.worship-thanks { max-width: 900px; text-align: center; margin: 0 auto 32px; }
-.worship-thanks .eyebrow { color: var(--green); font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
-.worship-thanks h2 { color: var(--gold); font-size: clamp(29px,5vw,47px); line-height: 1.2; margin-bottom: 15px; }
-.worship-thanks p { color: #e0ebe4; font-size: 17px; margin: 0 auto 14px; }
-.worship-thanks .scripture { color: #ffcf58; font-style: italic; }
-.slideshow { position: relative; max-width: 1050px; margin: auto; overflow: hidden; border: 1px solid rgba(255,176,0,.45); border-radius: 18px; background: #010b05; box-shadow: 0 18px 50px rgba(0,0,0,.4); }
-.slide { display: none; position: relative; }
-.slide.active { display: block; animation: fade .65s ease; }
-.slide img { width: 100%; height: clamp(260px,58vw,620px); object-fit: contain; background: #010b05; }
-.slide-caption { position: absolute; inset: auto 0 0; padding: 40px 24px 22px; text-align: center; color: white; font-size: clamp(18px,3vw,27px); font-weight: 800; background: linear-gradient(transparent,rgba(0,0,0,.86)); text-shadow: 0 2px 8px #000; }
-.slide-arrow { position: absolute; top: 45%; transform: translateY(-50%); width: 45px; height: 45px; border: 0; border-radius: 50%; background: rgba(1,21,10,.8); color: white; font-size: 28px; cursor: pointer; z-index: 2; }
-.slide-arrow:hover { background: var(--green); }
-.slide-arrow.prev { left: 14px; }
-.slide-arrow.next { right: 14px; }
-.slide-dots { display: flex; justify-content: center; gap: 9px; flex-wrap: wrap; padding: 15px 12px; background: #03170d; }
-.slide-dot { width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%; background: #718579; cursor: pointer; }
-.slide-dot.active { background: var(--gold); transform: scale(1.2); }
-.worship-invite { text-align: center; margin: 27px auto 0; color: #e0ebe4; font-size: 17px; }
-.worship-invite strong { color: var(--gold); }
-@keyframes fade { from {opacity:.3} to {opacity:1} }
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; }
-.contact-card { background: #062a17; border: 1px solid rgba(7,148,71,.3); border-radius: 15px; padding: 25px 20px; text-align: center; }
-.contact-card h3 { color: var(--gold); margin-bottom: 8px; font-size: 22px; }
-.contact-card p { color: #d2ddd6; font-size: 14px; margin-bottom: 12px; }
-.contact-card a { font-weight: bold; }
-.contact-card a:hover { color: var(--gold); }
-.social { text-align: center; padding-top: 35px; }
-.social h3 { color: var(--gold); margin-bottom: 18px; }
-.social-links { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; }
-.social-links a { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; min-height: 42px; padding: 9px; border-radius: 50%; background: #fff; }
-.social-links img { width: 24px; height: 24px; object-fit: contain; }
-footer { background: #01150a; border-top: 1px solid rgba(7,148,71,.3); text-align: center; padding: 30px 20px; color: #b8c8be; }
-footer strong { color: var(--green); }
+    nav a {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.3s;
+    }
 
-/* PRAYER AND HOPE CHAT */
-.neema-chat-launcher { position: fixed; right: 20px; bottom: 20px; z-index: 3000; border: 0; border-radius: 999px; padding: 14px 18px; cursor: pointer; background: #25d366; color: #062a17; font-weight: 800; font-size: 14px; box-shadow: 0 8px 26px rgba(0,0,0,.35); }
-.neema-chat { position: fixed; right: 20px; bottom: 82px; z-index: 3000; width: min(360px,calc(100vw - 28px)); height: 470px; max-height: calc(100vh - 115px); display: none; flex-direction: column; overflow: hidden; border-radius: 18px; background: #f7fbf8; color: #183326; box-shadow: 0 12px 40px rgba(0,0,0,.45); border: 1px solid var(--green); }
-.neema-chat.open { display: flex; }
-.neema-chat-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; background: var(--dark-green); color: white; }
-.neema-chat-head strong, .neema-chat-head small { display: block; }
-.neema-chat-head small { color: #d8f3e2; }
-.neema-chat-close { border: 0; background: transparent; color: white; font-size: 26px; cursor: pointer; }
-.neema-chat-messages { flex: 1; overflow: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
-.neema-bubble { max-width: 92%; padding: 10px 12px; border-radius: 13px; line-height: 1.45; font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere; }
-.neema-bubble.bot { align-self: flex-start; background: #e4f4e9; border-bottom-left-radius: 4px; }
-.neema-bubble.user { align-self: flex-end; background: #d4f8c6; border-bottom-right-radius: 4px; }
-.neema-chat-form { display: flex; gap: 8px; padding: 10px; background: white; border-top: 1px solid #dbe7df; }
-.neema-chat-form input { flex: 1; min-width: 0; border: 1px solid #bdcec2; border-radius: 22px; padding: 11px 13px; font-size: 14px; color: #183326; }
-.neema-chat-form button { border: 0; border-radius: 22px; background: var(--green); color: white; font-weight: 700; padding: 0 14px; cursor: pointer; }
-.neema-chat-note { padding: 8px 12px; font-size: 11px; color: #617367; background: white; }
-.neema-chat-whatsapp { display: block; text-align: center; margin: 0 10px 10px; padding: 10px 12px; border-radius: 22px; background: #25d366; color: #06351b; font-weight: 800; font-size: 13px; }
+    nav a:hover {
+      color: #ffb000;
+    }
 
-@media (max-width: 850px) {
-  .nav-container { flex-direction: column; }
-  .brand-area { flex-direction: column; }
-  nav { gap: 12px; }
-}
-@media (max-width: 600px) {
-  section { padding: 52px 15px; }
-  .logo { height: 50px; }
-  .brand-social { gap: 9px; }
-  .hero { min-height: 78vh; }
-  .hero-buttons .btn { width: 100%; max-width: 330px; }
-  .slide-arrow { width: 38px; height: 38px; }
-}
-</style>
+    /* BRAND SOCIAL ICONS NEAR THE ORIGINAL LOGO */
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .brand-social {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-social a,
+    .social-links a.social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      padding: 7px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid rgba(255,255,255,.25);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .brand-social a:hover,
+    .social-links a.social-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 16px rgba(0,0,0,.3);
+    }
+
+    .brand-social img,
+    .social-links a.social-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .social-links a.social-icon {
+      width: 46px;
+      height: 46px;
+      min-width: 46px;
+    }
+
+    /* PRAYER & HOPE CONTACT PANEL */
+    .neema-chat-launcher {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 3000;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 19px;
+      cursor: pointer;
+      background: #25d366;
+      color: #062a17;
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.35);
+    }
+
+    .neema-chat {
+      position: fixed;
+      right: 20px;
+      bottom: 82px;
+      z-index: 3000;
+      width: min(390px, calc(100vw - 28px));
+      max-height: calc(100vh - 115px);
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+      border-radius: 18px;
+      background: #f7fbf8;
+      color: #183326;
+      box-shadow: 0 12px 40px rgba(0,0,0,.45);
+      border: 1px solid #079447;
+    }
+
+    .neema-chat.open {
+      display: flex;
+    }
+
+    .neema-chat-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px 16px;
+      background: #045d2d;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .neema-chat-head strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .neema-chat-head small {
+      color: #d8f3e2;
+    }
+
+    .neema-chat-close {
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-size: 26px;
+      cursor: pointer;
+      padding: 0 5px;
+    }
+
+    .neema-contact-content {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .neema-contact-intro {
+      margin: 0;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .neema-contact-group {
+      background: #fff;
+      border: 1px solid #dbe7df;
+      border-radius: 13px;
+      padding: 12px;
+    }
+
+    .neema-contact-group h3 {
+      margin: 0 0 6px;
+      color: #045d2d;
+      font-size: 15px;
+    }
+
+    .neema-contact-group p {
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .neema-contact-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .neema-contact-actions a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 44px;
+      padding: 9px 8px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .neema-action-wa {
+      background: #25d366;
+      color: #06351b;
+    }
+
+    .neema-action-sms {
+      background: #e7f0ff;
+      color: #123f79;
+      border: 1px solid #c5d9f8;
+    }
+
+    .neema-contact-actions a:hover {
+      filter: brightness(.96);
+      transform: translateY(-1px);
+    }
+
+    .neema-contact-note {
+      margin: 0;
+      padding: 0 14px 14px;
+      font-size: 11px;
+      line-height: 1.45;
+      color: #617367;
+    }
+
+    @media (max-width: 420px) {
+      .neema-chat-launcher {
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .neema-chat {
+        right: 10px;
+        bottom: 72px;
+      }
+
+      .neema-contact-actions a {
+        font-size: 11px;
+        padding: 8px 5px;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        linear-gradient(rgba(2, 31, 16, 0.82), rgba(2, 31, 16, 0.96)),
+        url("assets/neema-logo.png") center/contain no-repeat;
+    }
+
+    .hero-content {
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .welcome {
+      color: #ffffff;
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .hero h1 {
+      color: #079447;
+      font-size: clamp(42px, 8vw, 90px);
+      line-height: 1;
+      font-weight: 900;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .garden {
+      color: #ffb000;
+      font-size: clamp(25px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .motto {
+      color: #ffffff;
+      font-size: clamp(16px, 2.5vw, 25px);
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-size: 17px;
+      color: #e7eee9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-live {
+      background: #d90000;
+      color: white;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: white;
+    }
+
+    .btn-sms {
+      background: #079447;
+      color: white;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 75px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #ffb000;
+      font-size: clamp(28px, 5vw, 42px);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #cbd8d0;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    /* LIVE */
+    #live {
+      background: #03170d;
+    }
+
+    .live-box {
+      max-width: 1000px;
+      margin: auto;
+      background: #061f12;
+      border: 1px solid rgba(7, 148, 71, 0.4);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .live-title {
+      text-align: center;
+      color: #ffb000;
+      margin-bottom: 18px;
+      font-size: 25px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .live-status {
+      text-align: center;
+      margin-top: 15px;
+      color: #ff3333;
+      font-weight: bold;
+    }
+
+    /* PROGRAMMES */
+    .programmes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .programme-card {
+      background: #062a17;
+      border: 1px solid rgba(7, 148, 71, 0.35);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .programme-card:hover {
+      transform: translateY(-5px);
+      border-color: #079447;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .programme-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .programme-info {
+      padding: 20px;
+    }
+
+    .programme-day {
+      color: #ffb000;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .programme-info h3 {
+      color: #ffffff;
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .programme-info p {
+      color: #c9d7ce;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .programme-link {
+      display: inline-block;
+      background: #079447;
+      color: white;
+      padding: 9px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* EVENT */
+    .event {
+      background: linear-gradient(135deg, #063d21, #021f10);
+      text-align: center;
+    }
+
+    .event-card {
+      max-width: 850px;
+      margin: auto;
+      padding: 35px 25px;
+      border: 1px solid rgba(255, 176, 0, 0.4);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .event-card h3 {
+      color: #ffb000;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .event-date {
+      font-size: 23px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .event-scripture {
+      color: #cfdad3;
+      font-style: italic;
+    }
+
+    /* WORSHIP NIGHT GALLERY */
+    .worship-gallery {
+      background: linear-gradient(180deg, #021f10, #06351d 55%, #021f10);
+    }
+
+    .worship-thanks {
+      max-width: 900px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+
+    .worship-thanks .eyebrow {
+      color: #079447;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .worship-thanks h2 {
+      color: #ffb000;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .worship-thanks p {
+      color: #e0ebe4;
+      font-size: 17px;
+      margin: 0 auto 14px;
+      max-width: 800px;
+    }
+
+    .worship-thanks .scripture {
+      color: #ffcf58;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .slideshow {
+      position: relative;
+      max-width: 1050px;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 176, 0, 0.45);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #010b05;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .slide {
+      display: none;
+      position: relative;
+    }
+
+    .slide.active {
+      display: block;
+      animation: worshipFade 0.8s ease;
+    }
+
+    .slide img {
+      width: 100%;
+      height: clamp(260px, 58vw, 620px);
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .slide-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 42px 24px 24px;
+      text-align: center;
+      color: #fff;
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 800;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+      text-shadow: 0 2px 8px #000;
+    }
+
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 50%;
+      background: rgba(1, 21, 10, 0.75);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .slide-arrow:hover {
+      background: #079447;
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .slide-arrow.prev { left: 16px; }
+    .slide-arrow.next { right: 16px; }
+
+    .slide-dots {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      padding: 17px 12px;
+      background: #03170d;
+    }
+
+    .slide-dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #718579;
+      cursor: pointer;
+    }
+
+    .slide-dot.active {
+      background: #ffb000;
+      transform: scale(1.2);
+    }
+
+    .worship-invite {
+      text-align: center;
+      margin: 28px auto 0;
+      color: #e0ebe4;
+      font-size: 17px;
+    }
+
+    .worship-invite strong { color: #ffb000; }
+
+    @keyframes worshipFade {
+      from { opacity: 0.35; }
+      to { opacity: 1; }
+    }
+
+    /* CONTACT */
+    #contact {
+      background: #03170d;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: #062a17;
+      border: 1px solid rgba(7, 148, 71, 0.3);
+      border-radius: 15px;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      color: #ffb000;
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .contact-card p {
+      color: #d2ddd6;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .contact-card a {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .contact-card a:hover {
+      color: #ffb000;
+    }
+
+    /* SOCIAL */
+    .social {
+      text-align: center;
+      padding-top: 35px;
+    }
+
+    .social h3 {
+      color: #ffb000;
+      margin-bottom: 18px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 90px;
+      padding: 10px 13px;
+      border-radius: 22px;
+      background: #062a17;
+      border: 1px solid rgba(7, 148, 71, 0.35);
+      font-size: 13px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #079447;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #01150a;
+      border-top: 1px solid rgba(7, 148, 71, 0.3);
+      text-align: center;
+      padding: 30px 20px;
+      color: #b8c8be;
+    }
+
+    footer strong {
+      color: #079447;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .brand-area {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .brand-social {
+        gap: 10px;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .logo {
+        height: 50px;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding: 55px 18px;
+      }
+
+      section {
+        padding: 55px 16px;
+      }
+
+      .programme-card img {
+        height: 180px;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        max-width: 330px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="nav-container">
-    <div class="brand-area">
-      <a href="#home" aria-label="NEEMA TV Home">
-        <img src="assets/neema-logo.png" alt="NEEMA TV Logo" class="logo">
-      </a>
-      <div class="brand-social" aria-label="NEEMA TV social media">
-        <a href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube"></a>
-        <a href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook"></a>
-        <a href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok"></a>
-        <a href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="https://cdn.simpleicons.org/x/000000" alt="X"></a>
-        <a href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp"></a>
-        <a href="https://www.instagram.com/neema.tv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"></a>
-      </div>
-    </div>
-    <nav>
-      <a href="#home">HOME</a>
-      <a href="#live">LIVE</a>
-      <a href="#programmes">PROGRAMMES</a>
-      <a href="#event">KESHA</a>
-      <a href="#worship-night">WORSHIP NIGHT</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">
+        <a href="#home" aria-label="NEEMA TV Home">
+          <img src="assets/neema-logo.png" alt="NEEMA TV Logo" class="logo">
+        </a>
 
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="welcome">Welcome to</div>
-    <h1>NEEMA TV</h1>
-    <div class="garden">THE GARDEN OF SUFFICIENT GRACE</div>
-    <div class="motto">AWAKEN • INSPIRE • LEAD</div>
-    <p class="hero-description">Bringing Hope • Sharing the Word • Transforming Lives. Christ-centered television bringing the Gospel of Jesus Christ to homes, communities and nations.</p>
-    <div class="hero-buttons">
-      <a href="#live" class="btn btn-live">🔴 WATCH LIVE</a>
-      <a href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">💬 WHATSAPP</a>
-      <a href="sms:+254706107773" class="btn btn-sms">✉️ REQUEST PRAYER / SMS</a>
-    </div>
-  </div>
-</section>
-
-<section id="live">
-  <div class="container">
-    <h2 class="section-title">LIVE NOW</h2>
-    <p class="section-subtitle">Watch NEEMA TV live and stay connected with the Gospel.</p>
-    <div class="live-box">
-      <div class="live-title">🔴 NEEMA TV LIVE</div>
-      <div class="video-wrapper">
-        <video id="liveVideo" controls autoplay playsinline muted></video>
-      </div>
-      <div class="live-status">🔴 LIVE</div>
-    </div>
-  </div>
-</section>
-
-<section id="programmes">
-  <div class="container">
-    <h2 class="section-title">OUR PROGRAMMES</h2>
-    <p class="section-subtitle">Watch and enjoy our programmes and be encouraged in the Word of God.</p>
-
-    <div class="programmes-grid">
-      <div class="programme-card">
-        <img src="assets/mke-wa-thamani.jpg" alt="Mke wa Thamani" loading="lazy">
-        <div class="programme-info">
-          <div class="programme-day">MONDAY • 8:00–8:30 PM</div>
-          <h3>Mke wa Thamani</h3>
-          <p>With Ann Kamau</p>
-          <a href="https://www.youtube.com/watch?v=r8tGaQ2oD1Y&amp;t=698s" target="_blank" rel="noopener noreferrer" class="programme-link">WATCH PROGRAMME</a>
+        <div class="brand-social" aria-label="NEEMA TV social media">
+          <a href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on YouTube">
+            <img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube">
+          </a>
+          <a href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on Facebook">
+            <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook">
+          </a>
+          <a href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on TikTok">
+            <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok">
+          </a>
+          <a href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on X">
+            <img src="https://cdn.simpleicons.org/x/000000" alt="X">
+          </a>
+          <a href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" aria-label="Chat with NEEMA TV on WhatsApp">
+            <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp">
+          </a>
+          <a href="https://www.instagram.com/neema.tv/" target="_blank" rel="noopener noreferrer" aria-label="NEEMA TV on Instagram">
+            <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram">
+          </a>
         </div>
       </div>
 
-      <div class="programme-card">
-        <img src="assets/safari-ya-neema.png" alt="Safari ya Neema" loading="lazy">
-        <div class="programme-info">
-          <div class="programme-day">TUESDAY • 8:00–8:30 PM</div>
-          <h3>Safari ya Neema</h3>
-          <p>With Recorbert Chepkwony</p>
-          <a href="https://youtu.be/IzjcsplvG8M" target="_blank" rel="noopener noreferrer" class="programme-link">WATCH PROGRAMME</a>
+      <nav>
+        <a href="#home">HOME</a>
+        <a href="#live">LIVE</a>
+        <a href="#programmes">PROGRAMMES</a>
+        <a href="#event">EVENT</a>
+        <a href="#worship-night">WORSHIP NIGHT</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="welcome">Welcome to</div>
+
+      <h1>NEEMA TV</h1>
+
+      <div class="garden">
+        THE GARDEN OF SUFFICIENT GRACE
+      </div>
+
+      <div class="motto">
+        AWAKEN • INSPIRE • LEAD
+      </div>
+
+      <p class="hero-description">
+        Bringing Hope • Sharing the Word • Transforming Lives.
+        Christ-centered television bringing the Gospel of Jesus Christ
+        to homes, communities and nations.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#live" class="btn btn-live">
+          🔴 WATCH LIVE
+        </a>
+
+        <a
+          href="https://wa.me/254706107773"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp"
+        >
+          💬 WHATSAPP
+        </a>
+
+        <a
+          href="sms:+254706107773"
+          class="btn btn-sms"
+        >
+          ✉️ REQUEST PRAYER / SMS
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE -->
+  <section id="live">
+    <div class="container">
+      <h2 class="section-title">LIVE NOW</h2>
+
+      <p class="section-subtitle">
+        Watch NEEMA TV live and stay connected with the Gospel.
+      </p>
+
+      <div class="live-box">
+        <div class="live-title">
+          🔴 NEEMA TV LIVE
+        </div>
+
+        <div class="video-wrapper">
+          <video
+            id="liveVideo"
+            controls
+            autoplay
+            playsinline
+            muted
+          ></video>
+        </div>
+
+        <div class="live-status">
+          🔴 LIVE
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMMES -->
+  <section id="programmes">
+    <div class="container">
+      <h2 class="section-title">OUR PROGRAMMES</h2>
+
+      <p class="section-subtitle">
+        Watch and enjoy our programmes and be encouraged in the Word of God.
+      </p>
+
+      <div class="programmes-grid">
+
+        <!-- MONDAY -->
+        <div class="programme-card">
+          <img src="assets/mke-wa-thamani.jpg" alt="Mke wa Thamani">
+
+          <div class="programme-info">
+            <div class="programme-day">
+              MONDAY • 8:00–8:30 PM
+            </div>
+
+            <h3>Mke wa Thamani</h3>
+
+            <p>With Ann Kamau</p>
+
+            <a
+              href="https://www.youtube.com/watch?v=r8tGaQ2oD1Y&t=698s"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="programme-link"
+            >
+              WATCH PROGRAMME
+            </a>
+          </div>
+        </div>
+
+        <!-- TUESDAY -->
+        <div class="programme-card">
+          <img src="assets/safari-ya-neema.png" alt="Safari ya Neema">
+
+          <div class="programme-info">
+            <div class="programme-day">
+              TUESDAY • 8:00–8:30 PM
+            </div>
+
+            <h3>Safari ya Neema</h3>
+
+            <p>With Recorbert Chepkwony</p>
+
+            <a
+              href="https://youtu.be/IzjcsplvG8M"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="programme-link"
+            >
+              WATCH PROGRAMME
+            </a>
+          </div>
+        </div>
+
+        <!-- WEDNESDAY -->
+        <div class="programme-card">
+          <img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana">
+
+          <div class="programme-info">
+            <div class="programme-day">
+              WEDNESDAY • 8:00–8:30 PM
+            </div>
+
+            <h3>Wema wa Bwana</h3>
+
+            <p>With Pst Joel Kamau</p>
+
+            <a
+              href="https://youtu.be/9STvK9FpL88"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="programme-link"
+            >
+              WATCH PROGRAMME
+            </a>
+          </div>
+        </div>
+
+        <!-- THURSDAY -->
+        <div class="programme-card">
+          <img
+            src="assets/sauti-ya-imani.png"
+            onerror="this.onerror=null;this.src='assets/SAUTI%20YA%20IMANI.png';this.onerror=function(){this.onerror=null;this.src='SAUTI%20YA%20IMANI.png'}"
+            alt="Sauti ya Imani"
+          >
+
+          <div class="programme-info">
+            <div class="programme-day">
+              THURSDAY • 8:00–8:30 PM
+            </div>
+
+            <h3>Sauti ya Imani</h3>
+
+            <p>With Bshp Francis Muya</p>
+
+            <a
+              href="https://youtu.be/0zOmTGLBhNM"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="programme-link"
+            >
+              WATCH PROGRAMME
+            </a>
+          </div>
+        </div>
+
+        <!-- FRIDAY -->
+        <div class="programme-card">
+          <img
+            src="assets/nuru-ya-wokovu.png"
+            onerror="this.onerror=null;this.src='assets/NURU%20YA%20WOKOVU.png';this.onerror=function(){this.onerror=null;this.src='NURU%20YA%20WOKOVU.png'}"
+            alt="Nuru ya Wokovu"
+          >
+
+          <div class="programme-info">
+            <div class="programme-day">
+              FRIDAY • 8:00–8:30 PM
+            </div>
+
+            <h3>Nuru ya Wokovu</h3>
+
+            <p>With Mrs Phylis Muya</p>
+
+            <a
+              href="https://youtu.be/xkam1iLwQO4"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="programme-link"
+            >
+              WATCH PROGRAMME
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT -->
+  <section class="event" id="event">
+    <div class="container">
+      <div class="event-card">
+        <h3>KESHA</h3>
+
+        <div class="event-date">
+          9 OCTOBER 2026
+        </div>
+
+        <p class="event-scripture">
+          “My grace is sufficient for you, for my power is made perfect in weakness.”
+          <br>
+          — 2 Corinthians 12:9
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIOUS WORSHIP NIGHT GALLERY -->
+  <section class="worship-gallery" id="worship-night">
+    <div class="container">
+      <div class="worship-thanks">
+        <div class="eyebrow">A Night in His Presence</div>
+
+        <h2>THANK YOU FOR WORSHIPPING WITH US</h2>
+
+        <p>
+          From our hearts, thank you to everyone who joined us for Worship Night —
+          a beautiful time of worship, prayer, and seeking the presence of God.
+          Your presence and prayers made the gathering special, and we give all the glory to Jesus.
+        </p>
+
+        <p class="scripture">
+          “Let everything that has breath praise the LORD.” — Psalm 150:6
+        </p>
+
+        <p>
+          <strong>Worship. Prayer. The Move. The Encounter. The Presence of God.</strong>
+        </p>
+      </div>
+
+      <div class="slideshow" aria-label="Photos from the previous NEEMA TV Worship Night">
+
+        <div class="slide active">
+          <img
+            src="assets/839935297_122151120069345663_3071052184519557634_n.jpg"
+            onerror="this.onerror=null;this.src='839935297_122151120069345663_3071052184519557634_n.jpg'"
+            alt="Worship Night — congregation gathered in worship"
+            loading="eager"
+          >
+          <div class="slide-caption">Worship in His Presence</div>
+        </div>
+
+        <div class="slide">
+          <img
+            src="assets/840923028_122116257477412928_3552145864519557634_n.jpg"
+            onerror="this.onerror=null;this.src='840923028_122116257477412928_3552145864519557634_n.jpg'"
+            alt="Worship Night — prayer and ministry"
+            loading="lazy"
+          >
+          <div class="slide-caption">A House of Prayer</div>
+        </div>
+
+        <div class="slide">
+          <img
+            src="assets/841099668_122151120717345663_5249913816322467498_n.jpg"
+            onerror="this.onerror=null;this.src='841099668_122151120717345663_5249913816322467498_n.jpg'"
+            alt="Worship Night — praise and worship"
+            loading="lazy"
+          >
+          <div class="slide-caption">The Move • The Encounter</div>
+        </div>
+
+        <div class="slide">
+          <img
+            src="assets/841340120_122151120459345663_4394902439384109213_n.jpg"
+            onerror="this.onerror=null;this.src='841340120_122151120459345663_4394902439384109213_n.jpg'"
+            alt="Worship Night — people gathered together"
+            loading="lazy"
+          >
+          <div class="slide-caption">One Heart, One Praise</div>
+        </div>
+
+        <button class="slide-arrow prev" type="button" aria-label="Previous photo" onclick="changeWorshipSlide(-1)">&#8249;</button>
+        <button class="slide-arrow next" type="button" aria-label="Next photo" onclick="changeWorshipSlide(1)">&#8250;</button>
+
+        <div class="slide-dots" aria-label="Choose a photo">
+          <button class="slide-dot active" type="button" aria-label="Show photo 1" onclick="showWorshipSlide(0)"></button>
+          <button class="slide-dot" type="button" aria-label="Show photo 2" onclick="showWorshipSlide(1)"></button>
+          <button class="slide-dot" type="button" aria-label="Show photo 3" onclick="showWorshipSlide(2)"></button>
+          <button class="slide-dot" type="button" aria-label="Show photo 4" onclick="showWorshipSlide(3)"></button>
         </div>
       </div>
 
-      <div class="programme-card">
-        <img src="assets/wema-wa-bwana.jpg" alt="Wema wa Bwana" loading="lazy">
-        <div class="programme-info">
-          <div class="programme-day">WEDNESDAY • 8:00–8:30 PM</div>
-          <h3>Wema wa Bwana</h3>
-          <p>With Pastor Joel Kamau</p>
-          <a href="https://youtu.be/9STvK9FpL88" target="_blank" rel="noopener noreferrer" class="programme-link">WATCH PROGRAMME</a>
+      <p class="worship-invite">
+        <strong>DON’T MISS THE NEXT EVENT!</strong><br>
+        We love you, we are praying for you, and we look forward to worshipping with you again.
+        Stay tuned to NEEMA TV — The Garden of Sufficient Grace.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">CONTACT US</h2>
+
+      <p class="section-subtitle">
+        We would love to hear from you and pray with you.
+      </p>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <p>Connect with NEEMA TV on WhatsApp</p>
+          <a
+            href="https://wa.me/254706107773"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +254 706 107 773
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>SMS</h3>
+          <p>Contact NEEMA TV by SMS</p>
+          <a href="sms:+254706107773">
+            +254 706 107 773
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p>Email NEEMA TV</p>
+          <a href="mailto:neematv001@gmail.com">
+            neematv001@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <p>Call NEEMA TV</p>
+          <a href="tel:+254706107773">
+            +254 706 107 773
+          </a>
+        </div>
+
+      </div>
+
+      <!-- SOCIAL MEDIA -->
+      <div class="social">
+        <h3>CONNECT WITH NEEMA TV</h3>
+
+        <div class="social-links" aria-label="Follow NEEMA TV">
+          <a class="social-icon" href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube">
+          </a>
+          <a class="social-icon" href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook">
+          </a>
+          <a class="social-icon" href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok">
+          </a>
+          <a class="social-icon" href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <img src="https://cdn.simpleicons.org/x/000000" alt="X">
+          </a>
+          <a class="social-icon" href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp">
+          </a>
+          <a class="social-icon" href="https://www.instagram.com/neema.tv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <strong>NEEMA TV</strong> — The Garden of Sufficient Grace
+    </p>
+
+    <p>
+      AWAKEN • INSPIRE • LEAD
+    </p>
+
+    <p>
+      Bringing Hope • Sharing the Word • Transforming Lives
+    </p>
+
+    <p style="margin-top: 10px;">
+      © 2026 NEEMA TV. All Rights Reserved.
+    </p>
+  </footer>
+
+  <!-- NEEMA TV PRAYER & HOPE CONTACT PANEL -->
+  <button
+    class="neema-chat-launcher"
+    id="neemaChatLauncher"
+    type="button"
+    aria-controls="neemaChat"
+    aria-expanded="false"
+  >
+    💚 Prayer & Hope
+  </button>
+
+  <section
+    class="neema-chat"
+    id="neemaChat"
+    aria-label="NEEMA TV Prayer and Hope contact options"
+  >
+    <div class="neema-chat-head">
+      <div>
+        <strong>NEEMA TV • Prayer & Hope</strong>
+        <small>Awaken • Inspire • Lead</small>
+      </div>
+
+      <button
+        class="neema-chat-close"
+        id="neemaChatClose"
+        type="button"
+        aria-label="Close Prayer and Hope"
+      >×</button>
+    </div>
+
+    <div class="neema-contact-content">
+      <p class="neema-contact-intro">
+        You are not alone. 🙏 Choose prayer if you would like us to stand with
+        you in faith, or send us feedback if something needs our attention.
+        Our team will read your message and respond personally when available.
+      </p>
+
+      <!-- PRAYER REQUEST OPTIONS -->
+      <div class="neema-contact-group">
+        <h3>🙏 Prayer Request</h3>
+
+        <p>
+          <strong>What do you want us to pray about?</strong><br>
+          Choose WhatsApp or SMS. The question will appear in your message
+          box, where you can type your prayer request and press Send.
+        </p>
+
+        <div class="neema-contact-actions">
+          <a
+            class="neema-action-wa"
+            href="https://wa.me/254706107773?text=What%20do%20you%20want%20us%20to%20pray%20about%3F%0A%0AMy%20prayer%20request%3A%20"
+            target="_blank"
+            rel="noopener noreferrer"
+          >🙏 Prayer via WhatsApp</a>
+
+          <a
+            class="neema-action-sms"
+            href="sms:+254706107773?body=What%20do%20you%20want%20us%20to%20pray%20about%3F%0A%0AMy%20prayer%20request%3A%20"
+          >✉️ Prayer via SMS</a>
         </div>
       </div>
 
-      <div class="programme-card">
-        <img src="assets/sauti-ya-imani.png" alt="Sauti ya Imani" loading="lazy">
-        <div class="programme-info">
-          <div class="programme-day">THURSDAY • 8:00–8:30 PM</div>
-          <h3>Sauti ya Imani</h3>
-          <p>With Bishop Francis Muya</p>
-          <a href="https://youtu.be/0zOmTGLBhNM" target="_blank" rel="noopener noreferrer" class="programme-link">WATCH PROGRAMME</a>
+      <!-- COMPLAINT OPTIONS -->
+      <div class="neema-contact-group">
+        <h3>💬 Complaints & Feedback</h3>
+
+        <p>
+          <strong>What is your complaint?</strong><br>
+          Choose WhatsApp or SMS. The question will appear in your message
+          box so you can explain your concern and send it to NEEMA TV.
+          Your feedback helps us improve.
+        </p>
+
+        <div class="neema-contact-actions">
+          <a
+            class="neema-action-wa"
+            href="https://wa.me/254706107773?text=What%20is%20your%20complaint%3F%0A%0AMy%20complaint%3A%20"
+            target="_blank"
+            rel="noopener noreferrer"
+          >💬 Complain via WhatsApp</a>
+
+          <a
+            class="neema-action-sms"
+            href="sms:+254706107773?body=What%20is%20your%20complaint%3F%0A%0AMy%20complaint%3A%20"
+          >✉️ Complain via SMS</a>
         </div>
       </div>
-
-      <div class="programme-card">
-        <img src="assets/nuru-ya-wokovu.png" alt="Nuru ya Wokovu" loading="lazy">
-        <div class="programme-info">
-          <div class="programme-day">FRIDAY • 8:00–8:30 PM</div>
-          <h3>Nuru ya Wokovu</h3>
-          <p>With Mrs Phylis Muya</p>
-          <a href="https://youtu.be/xkam1iLwQO4" target="_blank" rel="noopener noreferrer" class="programme-link">WATCH PROGRAMME</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="event" id="event">
-  <div class="container">
-    <div class="event-card">
-      <h3>KESHA</h3>
-      <div class="event-date">9 OCTOBER 2026</div>
-      <p class="event-scripture">“My grace is sufficient for you, for my power is made perfect in weakness.”<br>— 2 Corinthians 12:9</p>
-    </div>
-  </div>
-</section>
-
-<section class="worship-gallery" id="worship-night">
-  <div class="container">
-    <div class="worship-thanks">
-      <div class="eyebrow">A Night in His Presence</div>
-      <h2>THANK YOU FOR WORSHIPPING WITH US</h2>
-      <p>From our hearts, thank you to everyone who joined us for Worship Night — a beautiful time of worship, prayer, and seeking the presence of God. Your presence and prayers made the gathering special, and we give all the glory to Jesus.</p>
-      <p class="scripture">“Let everything that has breath praise the LORD.” — Psalm 150:6</p>
-      <p><strong>Worship. Prayer. The Move. The Encounter. The Presence of God.</strong></p>
     </div>
 
-    <div class="slideshow" aria-label="NEEMA TV Worship Night photo slideshow">
+    <p class="neema-contact-note">
+      Messages are sent directly to NEEMA TV's WhatsApp or SMS inbox at
+      +254 706 107 773. Replies are manual and may not be immediate.
+      Please share only personal details you are comfortable sending.
+    </p>
+  </section>
 
-      <div class="slide active">
-        <img src="assets/836572126_122116256277412928_7834394487885252540_n.jpg" alt="NEEMA TV Worship Night photo 1" loading="eager">
-        <div class="slide-caption">Worship in His Presence</div>
-      </div>
-      <div class="slide">
-        <img src="assets/839935297_122151120069345663_3071052184519557634_n.jpg" alt="NEEMA TV Worship Night photo 2" loading="lazy">
-        <div class="slide-caption">A Night of Worship</div>
-      </div>
-      <div class="slide">
-        <img src="assets/840923028_122116257477412928_3552145865939308890_n.jpg" alt="NEEMA TV Worship Night photo 3" loading="lazy">
-        <div class="slide-caption">A House of Prayer</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841099668_122151120717345663_5249913816322467498_n.jpg" alt="NEEMA TV Worship Night photo 4" loading="lazy">
-        <div class="slide-caption">The Move • The Encounter</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841296525_122116255893412928_2277331308339794587_n.jpg" alt="NEEMA TV Worship Night photo 5" loading="lazy">
-        <div class="slide-caption">United in Worship</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841296525_122116256127412928_580425044995855144_n.jpg" alt="NEEMA TV Worship Night photo 6" loading="lazy">
-        <div class="slide-caption">Together in His Presence</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841296922_122116257849412928_2738482761693479140_n.jpg" alt="NEEMA TV Worship Night photo 7" loading="lazy">
-        <div class="slide-caption">A Time of Praise</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841340120_122151120459345663_4394902439384109213_n.jpg" alt="NEEMA TV Worship Night photo 8" loading="lazy">
-        <div class="slide-caption">One Heart, One Praise</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841369991_122116255851412928_937976800502658752_n.jpg" alt="NEEMA TV Worship Night photo 9" loading="lazy">
-        <div class="slide-caption">Glory to God</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841464499_122151118983345663_1678222321485340439_n.jpg" alt="NEEMA TV Worship Night photo 10" loading="lazy">
-        <div class="slide-caption">Worship and Thanksgiving</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841480885_122116254849412928_5875347185328286838_n.jpg" alt="NEEMA TV Worship Night photo 11" loading="lazy">
-        <div class="slide-caption">Gathered in His Name</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841487389_122116256385412928_1965553417641210726_n.jpg" alt="NEEMA TV Worship Night photo 12" loading="lazy">
-        <div class="slide-caption">A Night to Remember</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841499314_122151120159345663_354900417626781225_n.jpg" alt="NEEMA TV Worship Night photo 13" loading="lazy">
-        <div class="slide-caption">Celebrating His Goodness</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841639964_122116255179412928_5656048292772657313_n.jpg" alt="NEEMA TV Worship Night photo 14" loading="lazy">
-        <div class="slide-caption">In the Presence of God</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841644986_122116256925412928_3628543929259520042_n.jpg" alt="NEEMA TV Worship Night photo 15" loading="lazy">
-        <div class="slide-caption">Praise His Holy Name</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841651264_122116255113412928_3128187777475166049_n.jpg" alt="NEEMA TV Worship Night photo 16" loading="lazy">
-        <div class="slide-caption">Faith • Worship • Fellowship</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841687364_122116256577412928_7456591043419245474_n.jpg" alt="NEEMA TV Worship Night photo 17" loading="lazy">
-        <div class="slide-caption">A Heart of Gratitude</div>
-      </div>
-      <div class="slide">
-        <img src="assets/841736048_122116257069412928_229107604653710442_n.jpg" alt="NEEMA TV Worship Night photo 18" loading="lazy">
-        <div class="slide-caption">Together in Faith</div>
-      </div>
-      <div class="slide">
-        <img src="assets/842033678_122116257435412928_8018580157289617291_n.jpg" alt="NEEMA TV Worship Night photo 19" loading="lazy">
-        <div class="slide-caption">Let Everything Praise the Lord</div>
-      </div>
-      <div class="slide">
-        <img src="assets/842055855_122116256973412928_8511905788501151299_n.jpg" alt="NEEMA TV Worship Night photo 20" loading="lazy">
-        <div class="slide-caption">A Beautiful Gathering</div>
-      </div>
-      <div class="slide">
-        <img src="assets/842143165_122116258167412928_2786692896280410211_n.jpg" alt="NEEMA TV Worship Night photo 21" loading="lazy">
-        <div class="slide-caption">Giving God the Glory</div>
-      </div>
-      <div class="slide">
-        <img src="assets/842466031_122116259085412928_2471802590367101182_n.jpg" alt="NEEMA TV Worship Night photo 22" loading="lazy">
-        <div class="slide-caption">An Evening of Praise</div>
-      </div>
-      <div class="slide">
-        <img src="assets/842977454_122116257585412928_4707515694614213684_n.jpg" alt="NEEMA TV Worship Night photo 23" loading="lazy">
-        <div class="slide-caption">The Joy of the Lord</div>
-      </div>
-      <div class="slide">
-        <img src="assets/843167953_122116255923412928_209051416971891589_n.jpg" alt="NEEMA TV Worship Night photo 24" loading="lazy">
-        <div class="slide-caption">Worship • Prayer • Fellowship</div>
-      </div>
-      <div class="slide">
-        <img src="assets/843264701_122151115125345663_8145859101503056529_n.jpg" alt="NEEMA TV Worship Night photo 25" loading="lazy">
-        <div class="slide-caption">Thank You for Joining Us</div>
-      </div>
-      <div class="slide">
-        <img src="assets/843299928_40046230844976307_3386500137233116405_n.jpg" alt="NEEMA TV Worship Night photo 26" loading="lazy">
-        <div class="slide-caption">To God Be All the Glory</div>
-      </div>
+  <!-- WORSHIP NIGHT SLIDESHOW -->
+  <script>
+    let worshipSlideIndex = 0;
+    let worshipSlideTimer;
 
-      <button class="slide-arrow prev" type="button" aria-label="Previous photo" onclick="changeWorshipSlide(-1)">&#8249;</button>
-      <button class="slide-arrow next" type="button" aria-label="Next photo" onclick="changeWorshipSlide(1)">&#8250;</button>
-      <div class="slide-dots" id="worshipDots" aria-label="Choose a photo"></div>
-    </div>
+    function showWorshipSlide(index) {
+      const slides = document.querySelectorAll("#worship-night .slide");
+      const dots = document.querySelectorAll("#worship-night .slide-dot");
 
-    <p class="worship-invite"><strong>DON’T MISS THE NEXT EVENT!</strong><br>We love you, we are praying for you, and we look forward to worshipping with you again. Stay tuned to NEEMA TV — The Garden of Sufficient Grace.</p>
-  </div>
-</section>
+      if (!slides.length) return;
 
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">CONTACT US</h2>
-    <p class="section-subtitle">We would love to hear from you and pray with you.</p>
+      worshipSlideIndex = (index + slides.length) % slides.length;
 
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>WhatsApp</h3>
-        <p>Connect with NEEMA TV on WhatsApp</p>
-        <a href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer">+254 706 107 773</a>
-      </div>
-      <div class="contact-card">
-        <h3>SMS</h3>
-        <p>Contact NEEMA TV by SMS</p>
-        <a href="sms:+254706107773">+254 706 107 773</a>
-      </div>
-      <div class="contact-card">
-        <h3>Email</h3>
-        <p>Email NEEMA TV</p>
-        <a href="mailto:neematv001@gmail.com">neematv001@gmail.com</a>
-      </div>
-      <div class="contact-card">
-        <h3>Phone</h3>
-        <p>Call NEEMA TV</p>
-        <a href="tel:+254706107773">+254 706 107 773</a>
-      </div>
-    </div>
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === worshipSlideIndex);
+      });
 
-    <div class="social">
-      <h3>CONNECT WITH NEEMA TV</h3>
-      <div class="social-links">
-        <a href="https://www.youtube.com/@NEEMATV-l7f" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube"></a>
-        <a href="https://web.facebook.com/share/v/1CJHojxMLZ/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook"></a>
-        <a href="https://www.tiktok.com/@neema.tv3" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok"></a>
-        <a href="https://x.com/NEEMATVnkr" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="https://cdn.simpleicons.org/x/000000" alt="X"></a>
-        <a href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp"></a>
-        <a href="https://www.instagram.com/neema.tv/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"></a>
-      </div>
-    </div>
-  </div>
-</section>
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === worshipSlideIndex);
+        dot.setAttribute(
+          "aria-pressed",
+          i === worshipSlideIndex ? "true" : "false"
+        );
+      });
 
-<footer>
-  <p><strong>NEEMA TV</strong> — The Garden of Sufficient Grace</p>
-  <p>AWAKEN • INSPIRE • LEAD</p>
-  <p>Bringing Hope • Sharing the Word • Transforming Lives</p>
-  <p style="margin-top:10px">© 2026 NEEMA TV. All Rights Reserved.</p>
-</footer>
+      restartWorshipSlideshow();
+    }
 
-<!-- PRAYER & HOPE CHAT -->
-<button class="neema-chat-launcher" id="neemaChatLauncher" type="button" aria-controls="neemaChat" aria-expanded="false">💬 Prayer &amp; Hope Chat</button>
+    function changeWorshipSlide(direction) {
+      showWorshipSlide(worshipSlideIndex + direction);
+    }
 
-<section class="neema-chat" id="neemaChat" aria-label="NEEMA TV Prayer and Hope Chat">
-  <div class="neema-chat-head">
-    <div><strong>NEEMA TV • Prayer &amp; Hope</strong><small>Awaken • Inspire • Lead</small></div>
-    <button class="neema-chat-close" id="neemaChatClose" type="button" aria-label="Close chat">×</button>
-  </div>
-  <div class="neema-chat-messages" id="neemaChatMessages" aria-live="polite">
-    <div class="neema-bubble bot">Praise the Lord! Welcome to NEEMA TV. 🙏
+    function restartWorshipSlideshow() {
+      clearInterval(worshipSlideTimer);
 
-How may we help you today? You are welcome to share a prayer request, ask a question, or tell us how we can support you.</div>
-    <div class="neema-bubble bot">“The prayer of a righteous person is powerful and effective.” — James 5:16
+      worshipSlideTimer = setInterval(() => {
+        showWorshipSlide(worshipSlideIndex + 1);
+      }, 5000);
+    }
 
-Prayer is the key. Keep trusting God; even in a difficult season, you are not forgotten. “Cast all your anxiety on him because he cares for you.” — 1 Peter 5:7</div>
-  </div>
-  <form class="neema-chat-form" id="neemaChatForm">
-    <input id="neemaChatInput" type="text" maxlength="700" placeholder="Type your message here…" aria-label="Type your message" required>
-    <button type="submit">Send</button>
-  </form>
-  <div class="neema-chat-note">This is an automated website chat, not a staffed inbox. Use WhatsApp below to contact the ministry directly.</div>
-  <a class="neema-chat-whatsapp" href="https://wa.me/254706107773" target="_blank" rel="noopener noreferrer">Continue to NEEMA TV WhatsApp</a>
-</section>
+    document.addEventListener("DOMContentLoaded", () => {
+      restartWorshipSlideshow();
 
-<script>
-/* WORSHIP NIGHT SLIDESHOW */
-let worshipSlideIndex = 0;
-let worshipSlideTimer;
-const worshipSlides = document.querySelectorAll("#worship-night .slide");
-const worshipDotsContainer = document.getElementById("worshipDots");
+      const gallery = document.querySelector("#worship-night .slideshow");
 
-worshipSlides.forEach((slide, index) => {
-  const dot = document.createElement("button");
-  dot.type = "button";
-  dot.className = "slide-dot" + (index === 0 ? " active" : "");
-  dot.setAttribute("aria-label", "Show photo " + (index + 1));
-  dot.addEventListener("click", () => showWorshipSlide(index));
-  worshipDotsContainer.appendChild(dot);
-});
+      if (gallery) {
+        gallery.addEventListener("mouseenter", () => {
+          clearInterval(worshipSlideTimer);
+        });
 
-function showWorshipSlide(index) {
-  if (!worshipSlides.length) return;
-  const dots = worshipDotsContainer.querySelectorAll(".slide-dot");
-  worshipSlideIndex = (index + worshipSlides.length) % worshipSlides.length;
+        gallery.addEventListener("mouseleave", restartWorshipSlideshow);
+      }
+    });
+  </script>
 
-  worshipSlides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === worshipSlideIndex);
-  });
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === worshipSlideIndex);
-    dot.setAttribute("aria-pressed", i === worshipSlideIndex ? "true" : "false");
-  });
-  restartWorshipSlideshow();
-}
+  <!-- PRAYER & HOPE PANEL CONTROLS -->
+  <script>
+    (function () {
+      const panel = document.getElementById("neemaChat");
+      const launcher = document.getElementById("neemaChatLauncher");
+      const closeButton = document.getElementById("neemaChatClose");
 
-function changeWorshipSlide(direction) {
-  showWorshipSlide(worshipSlideIndex + direction);
-}
-
-function restartWorshipSlideshow() {
-  clearInterval(worshipSlideTimer);
-  worshipSlideTimer = setInterval(() => showWorshipSlide(worshipSlideIndex + 1), 5000);
-}
-
-const worshipGallery = document.querySelector("#worship-night .slideshow");
-if (worshipGallery) {
-  restartWorshipSlideshow();
-  worshipGallery.addEventListener("mouseenter", () => clearInterval(worshipSlideTimer));
-  worshipGallery.addEventListener("mouseleave", restartWorshipSlideshow);
-}
-
-/* PRAYER CHAT */
-(function () {
-  const panel = document.getElementById("neemaChat");
-  const launcher = document.getElementById("neemaChatLauncher");
-  const closeButton = document.getElementById("neemaChatClose");
-  const form = document.getElementById("neemaChatForm");
-  const input = document.getElementById("neemaChatInput");
-  const messages = document.getElementById("neemaChatMessages");
-
-  function setChatOpen(open) {
-    panel.classList.toggle("open", open);
-    launcher.setAttribute("aria-expanded", open ? "true" : "false");
-    if (open) input.focus();
-  }
-
-  function addMessage(text, who) {
-    const bubble = document.createElement("div");
-    bubble.className = "neema-bubble " + who;
-    bubble.textContent = text;
-    messages.appendChild(bubble);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  launcher.addEventListener("click", () => setChatOpen(!panel.classList.contains("open")));
-  closeButton.addEventListener("click", () => setChatOpen(false));
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const message = input.value.trim();
-    if (!message) return;
-
-    addMessage(message, "user");
-    input.value = "";
-
-    window.setTimeout(function () {
-      const lower = message.toLowerCase();
-      let reply = "Thank you for sharing with NEEMA TV. 🙏 Prayer is the key, and there is hope in Christ. “Cast all your anxiety on him because he cares for you.” — 1 Peter 5:7. May the Lord strengthen you and fill your heart with His peace.";
-
-      if (lower.includes("pray") || lower.includes("prayer") || lower.includes("sick") || lower.includes("healing")) {
-        reply = "We are glad you reached out. 🙏 May the Lord hear your prayer and strengthen you. “Do not be anxious about anything, but in every situation, by prayer and petition… present your requests to God.” — Philippians 4:6. Keep trusting Him; you are not alone.";
-      } else if (lower.includes("hope") || lower.includes("sad") || lower.includes("fear") || lower.includes("anxious") || lower.includes("worry") || lower.includes("discouraged")) {
-        reply = "There is hope in Jesus Christ. ❤️ “Fear not, for I am with you… I will strengthen you and help you.” — Isaiah 41:10. Take one step at a time and remember that you are precious to God.";
-      } else if (lower.includes("thank")) {
-        reply = "You are most welcome! 🙏 “Give thanks to the Lord, for he is good; his love endures forever.” — Psalm 107:1.";
-      } else if (lower.includes("service") || lower.includes("program") || lower.includes("live") || lower.includes("watch")) {
-        reply = "Thank you for connecting with NEEMA TV! 📺 Explore our programmes and Live section on this website. “Your word is a lamp for my feet, a light on my path.” — Psalm 119:105.";
+      function setPanelOpen(open) {
+        panel.classList.toggle("open", open);
+        launcher.setAttribute("aria-expanded", open ? "true" : "false");
       }
 
-      addMessage(reply, "bot");
-    }, 400);
-  });
-})();
+      launcher.addEventListener("click", function () {
+        setPanelOpen(!panel.classList.contains("open"));
+      });
 
-/* NEEMA TV LIVE HLS PLAYER */
-const video = document.getElementById("liveVideo");
-const streamUrl = "https://neematv.tail9f5d71.ts.net/hls/neematv.m3u8";
+      closeButton.addEventListener("click", function () {
+        setPanelOpen(false);
+      });
+    })();
+  </script>
 
-if (video.canPlayType("application/vnd.apple.mpegurl")) {
-  video.src = streamUrl;
-  video.addEventListener("loadedmetadata", () => video.play().catch(() => {}));
-} else {
-  const hlsScript = document.createElement("script");
-  hlsScript.src = "https://cdn.jsdelivr.net/npm/hls.js@latest";
-  hlsScript.onload = function () {
-    if (window.Hls && Hls.isSupported()) {
-      const hls = new Hls({ enableWorker: true, lowLatencyMode: true });
+  <!-- HLS PLAYER -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <script>
+    const video = document.getElementById("liveVideo");
+
+    // EXISTING NEEMA TV LIVE STREAM URL
+    const streamUrl =
+      "https://neematv.tail9f5d71.ts.net/hls/neematv.m3u8";
+
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = streamUrl;
+
+      video.addEventListener("loadedmetadata", function () {
+        video.play().catch(() => {});
+      });
+
+    } else if (Hls.isSupported()) {
+      const hls = new Hls({
+        enableWorker: true,
+        lowLatencyMode: true
+      });
+
       hls.loadSource(streamUrl);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
-      hls.on(Hls.Events.ERROR, (event, data) => {
+
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play().catch(() => {});
+      });
+
+      hls.on(Hls.Events.ERROR, function (event, data) {
+        console.log("HLS error:", data);
+
         if (data.fatal) {
-          if (data.type === Hls.ErrorTypes.NETWORK_ERROR) hls.startLoad();
-          else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) hls.recoverMediaError();
-          else hls.destroy();
+          switch (data.type) {
+            case Hls.ErrorTypes.NETWORK_ERROR:
+              console.log("NEEMA TV: Network error. Retrying...");
+              hls.startLoad();
+              break;
+
+            case Hls.ErrorTypes.MEDIA_ERROR:
+              console.log("NEEMA TV: Media error. Recovering...");
+              hls.recoverMediaError();
+              break;
+
+            default:
+              console.log("NEEMA TV: Fatal HLS error.");
+              hls.destroy();
+              break;
+          }
         }
       });
+
+    } else {
+      console.log("HLS is not supported by this browser.");
     }
-  };
-  document.head.appendChild(hlsScript);
-}
-</script>
+  </script>
 
 </body>
 </html>
